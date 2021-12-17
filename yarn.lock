@@ -5903,6 +5903,11 @@ react-native-iphone-x-helper@^1.3.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
+
 react-native-localize@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.1.6.tgz#2d3e98ca9a2115ee8f0eca4e3116219893144123"
@@ -5934,6 +5939,11 @@ react-native-reanimated@^2.3.1:
     mockdate "^3.0.2"
     react-native-screens "^3.4.0"
     string-hash-64 "^1.0.3"
+
+react-native-remix-icon@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-remix-icon/-/react-native-remix-icon-0.3.0.tgz#1b594dc7703f42eff9c016b3150764701d59ebd2"
+  integrity sha512-GKwada565yFZOh/6y9ssI8ykrQbWUyAmoayfezQt85sorKimh3vpJaJJy35874HMJUYnzkIyRTWL9OivxZMfXA==
 
 react-native-restart@^0.0.22:
   version "0.0.22"
