@@ -4,13 +4,7 @@
     "es2021": true,
     "react-native/react-native": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier",
-    "prettier/react"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier", "prettier/react"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,5 +16,23 @@
   "rules": {
     // allow .js files to contain JSX code
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "alias": {
+          "@components": "./src/Components",
+          "@assets": "./src/Assets",
+          "@navigation": "./src/Navigation",
+          "@screens": "./src/Screens",
+          "@utils": "./src/Utils",
+          "@store": "./src/Store",
+          "@services": "./src/Services",
+          "@constants": "./src/Constants",
+          "@config": "./src/Config"
+        }
+      }
+    }
   }
 }
