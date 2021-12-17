@@ -6,6 +6,7 @@ module.exports = {
     },
   },
   plugins: [
+    'react-native-reanimated/plugin',
     [
       'module-resolver',
       {
@@ -21,6 +22,10 @@ module.exports = {
           '@services': './src/Services',
           '@store': './src/Store',
           '@utils': './src/Utils',
+          '@atoms': './src/Components/Atoms',
+          '@actions': './src/Store/Actions',
+          '@reducers': './src/Store/Reducers',
+          '@sagas': './src/Store/Sagas',
         },
       },
     ],

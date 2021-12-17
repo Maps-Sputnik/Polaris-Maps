@@ -30,7 +30,11 @@
           "@store": "./src/Store",
           "@services": "./src/Services",
           "@constants": "./src/Constants",
-          "@config": "./src/Config"
+          "@config": "./src/Config",
+          "@atoms": "./src/Components/Atoms",
+          "@actions": "./src/Store/Actions",
+          "@reducers": "./src/Store/Reducers",
+          "@sagas": "./src/Store/Sagas"
         }
       }
     }
