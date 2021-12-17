@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Admin"
+		},
+		{
+			"path": "../Server"
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "Ayu Dark",
+		"workbench.iconTheme": "ayu",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+	}
+}
