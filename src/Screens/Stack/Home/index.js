@@ -6,6 +6,7 @@ import Icon from 'react-native-remix-icon';
 import LinearGradient from 'react-native-linear-gradient';
 import VectorIcon from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
+import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
 const LoadingAnim = require('@assets/JSON/loadingNav.json');
 
@@ -32,14 +33,16 @@ const Home = () => {
         <LottieView source={LoadingAnim} autoPlay loop style={styles.animation} />
       </View>
       <View style={styles.section}>
-        <LinearGradient
-          style={styles.gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={['#0f0', '#f00']}
-        >
-          <Text style={{ color: '#fff' }}>Linear Gradient</Text>
-        </LinearGradient>
+        <TouchableOpacity style={styles.button}>
+          <LinearGradient
+            style={styles.gradient}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={['#1A2980', '#26D0CE']}
+          >
+            <Text style={{ color: '#fff' }}>Linear Gradient</Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
     </View>
   );

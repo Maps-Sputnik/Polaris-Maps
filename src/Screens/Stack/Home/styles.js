@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
+  button: {
+    width: '80%',
+  },
 });
 
 export default styles;
