@@ -4,13 +4,14 @@ import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
+import { colors } from '@utils';
+
 const isIos = Platform.OS === 'ios';
 const { width } = Dimensions.get('window');
 const totalWidth = width - 30;
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
-  const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   // const tabWidth = totalWidth / state?.routes?.length;
   if (focusedOptions?.tabBarVisible === false) {
@@ -64,7 +65,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               color: isFocused ? colors.primary : '#7d7d7d',
               size: 25,
             })}
-            <Text style={styles.label(isFocused ? colors.primary : '#7d7d7d')}>{label}</Text>
+            <Text style={styles.label(isFocused ? colors.main : colors.secondary)}>{label}</Text>
           </TouchableOpacity>
         );
       })}
@@ -75,7 +76,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
 const styles = StyleSheet.create({
   container: (bottom) => ({
     position: 'absolute',
-    bottom: bottom,
+    bottom: Platform.OS == 'ios' ? bottom : 15,
     width: totalWidth,
     flexDirection: 'row',
     alignItems: 'center',
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     color: color,
     fontSize: 13,
+    fontFamily: 'Lato-Regular',
   }),
   badgeWrapper: (color) => ({
     position: 'absolute',
