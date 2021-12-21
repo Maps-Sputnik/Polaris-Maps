@@ -34,9 +34,9 @@ export default function BottomNavigation() {
           return (
             <Icon name={focused ? 'bookmark-fill' : 'bookmark-line'} size={size} color={color} />
           );
-        case 'Nearby':
+        case 'Settings':
           return (
-            <Icon name={focused ? 'map-pin-2-fill' : 'map-pin-2-line'} size={size} color={color} />
+            <Icon name={focused ? 'settings-fill' : 'settings-line'} size={size} color={color} />
           );
       }
     };
@@ -66,13 +66,17 @@ export default function BottomNavigation() {
         component={TabScreens.Navigation}
         options={screenOptions('Navigation')}
       />
-      <Tab.Screen name="Nearby" component={TabScreens.Nearby} options={screenOptions('Nearby')} />
       <Tab.Screen
         name="Messages"
         component={TabScreens.Messages}
         options={screenOptions('Messages')}
       />
       <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
+      <Tab.Screen
+        name="Settings"
+        component={TabScreens.Settings}
+        options={screenOptions('Settings')}
+      />
     </Tab.Navigator>
   );
 }
