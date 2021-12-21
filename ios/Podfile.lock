@@ -289,7 +289,7 @@ PODS:
     - glog
   - react-native-maps (0.29.4):
     - React-Core
-  - react-native-netinfo (7.1.6):
+  - react-native-netinfo (7.1.7):
     - React-Core
   - react-native-restart (0.0.22):
     - React-Core
@@ -648,7 +648,7 @@ SPEC CHECKSUMS:
   React-jsinspector: d0374f7509d407d2264168b6d0fad0b54e300b85
   React-logger: 933f80c97c633ee8965d609876848148e3fef438
   react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
-  react-native-netinfo: 6f98a7fb549351a8f7f9a6d1ca80afc23e320045
+  react-native-netinfo: 27f287f2d191693f3b9d01a4273137fcf91c3b5d
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-sensitive-info: 400c6e3d27945e15c8cddb5b4b92233c85ee06f8
@@ -679,6 +679,6 @@ SPEC CHECKSUMS:
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: dfe92722d37195f55039a21cb87dc5d495d4babd
+PODFILE CHECKSUM: d60b7a56de5bb8462516905bd7f96e820e9a437b
 
 COCOAPODS: 1.10.1

@@ -1,10 +1,30 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Container from '@components/Atoms/Container';
-import { colors, sizes } from '@utils/index';
+import { colors } from '@utils/index';
+import MapView, { Marker } from 'react-native-maps';
 
 const Dashboard = ({ navigation }) => {
-  return <Container style={styles.container}></Container>;
+  return (
+    <Container style={styles.container}>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      >
+        <Marker
+          coordinate={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+          }}
+        />
+      </MapView>
+    </Container>
+  );
 };
 
 export default Dashboard;
@@ -14,11 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.bg,
   },
-  bar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: sizes.padding,
-    paddingVertical: sizes.padding,
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
 });
