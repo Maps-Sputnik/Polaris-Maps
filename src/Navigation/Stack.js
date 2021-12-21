@@ -9,7 +9,7 @@ const StackNavigator = () => {
   return (
     <ErrorBoundary>
       <Stack.Navigator
-        initialRouteName="Root"
+        initialRouteName="Home"
         component={DrawerNavigator}
         screenOptions={{
           gestureEnabled: true,
