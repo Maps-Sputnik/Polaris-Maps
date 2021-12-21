@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import ErrorBoundary from '../Components/Others/ErrorBoundary';
-import StackScreens from '@screens/Stack';
+
+import DrawerNavigator from './Drawer';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
@@ -9,14 +10,14 @@ const StackNavigator = () => {
     <ErrorBoundary>
       <Stack.Navigator
         initialRouteName="Home"
+        component={DrawerNavigator}
         screenOptions={{
           gestureEnabled: true,
           headerShown: false,
           ...TransitionPresets.SlideFromRightIOS,
         }}
       >
-        <Stack.Screen name="Home" component={StackScreens.Home} />
-        <Stack.Screen name="Settings" component={StackScreens.Settings} />
+        <Stack.Screen name="Home" component={DrawerNavigator} />
       </Stack.Navigator>
     </ErrorBoundary>
   );
