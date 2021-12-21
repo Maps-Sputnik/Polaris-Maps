@@ -3,20 +3,23 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 import ErrorBoundary from '../Components/Others/ErrorBoundary';
 import StackScreens from '@screens/Stack';
 
+import BottomNavigator from './Bottom';
+import DrawerNavigator from './Drawer';
+
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
     <ErrorBoundary>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Root"
+        component={DrawerNavigator}
         screenOptions={{
           gestureEnabled: true,
           headerShown: false,
           ...TransitionPresets.SlideFromRightIOS,
         }}
       >
-        <Stack.Screen name="Home" component={StackScreens.Home} />
-        <Stack.Screen name="Settings" component={StackScreens.Settings} />
+        <Stack.Screen name="Home" component={BottomNavigator} />
       </Stack.Navigator>
     </ErrorBoundary>
   );
