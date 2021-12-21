@@ -8,12 +8,13 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
-      initialRouteName="DrawerHome"
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+        drawerType: 'front',
       }}
     >
-      <Drawer.Screen name="DrawerHome" component={BottomNavigator} />
+      <Drawer.Screen name="Home" component={BottomNavigator} />
     </Drawer.Navigator>
   );
 }

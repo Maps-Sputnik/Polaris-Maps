@@ -1,11 +1,11 @@
-import Dashboard from './Dashboard';
-import Search from './Search';
+import Navigation from './Dashboard';
+import Messages from './Search';
 import Saved from './Saved';
-import Profile from './Profile';
+import Nearby from './Profile';
 
 export default {
-  Dashboard,
-  Search,
+  Navigation,
+  Messages,
   Saved,
-  Profile,
+  Nearby,
 };

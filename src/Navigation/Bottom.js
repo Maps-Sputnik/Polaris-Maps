@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
-import CustomTabBar from '@components/Molecules/CustomTabBar';
+import Icon from 'react-native-remix-icon';
 import TabScreens from '@screens/Bottom';
+import CustomTabBar from '@components/Organisms/CustomTabBar';
+import CustomHeader from '@components/Organisms/CustomHeader';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,45 +12,31 @@ export default function BottomNavigation() {
     return <CustomTabBar {...props} />;
   };
 
+  const renderHeader = (props) => {
+    return <CustomHeader {...props} />;
+  };
+
   const renderIcons =
     (name) =>
     ({ focused, color, size }) => {
       switch (name) {
-        case 'Dashboard':
+        case 'Navigation':
           return (
             <Icon
-              name={focused ? 'ios-home' : 'ios-home-outline'}
-              width={size + 5}
-              height={size + 5}
-              fill={color}
+              name={focused ? 'navigation-fill' : 'navigation-line'}
+              size={size}
+              color={color}
             />
           );
-        case 'Search':
-          return (
-            <Icon
-              name={focused ? 'ios-search' : 'ios-search-outline'}
-              width={size + 5}
-              height={size + 5}
-              fill={color}
-            />
-          );
+        case 'Messages':
+          return <Icon name={focused ? 'chat-1-fill' : 'chat-1-line'} size={size} color={color} />;
         case 'Saved':
           return (
-            <Icon
-              name={focused ? 'ios-bookmark' : 'ios-bookmark-outline'}
-              width={size + 5}
-              height={size + 5}
-              fill={color}
-            />
+            <Icon name={focused ? 'bookmark-fill' : 'bookmark-line'} size={size} color={color} />
           );
-        case 'Profile':
+        case 'Nearby':
           return (
-            <Icon
-              name={focused ? 'person' : 'person-outline'}
-              width={size + 5}
-              height={size + 5}
-              fill={color}
-            />
+            <Icon name={focused ? 'map-pin-2-fill' : 'map-pin-2-line'} size={size} color={color} />
           );
       }
     };
@@ -64,7 +51,8 @@ export default function BottomNavigation() {
     <Tab.Navigator
       tabBar={renderTabBar}
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
+        header: renderHeader,
         tabBarActiveTintColor: '#003566',
         tabBarInactiveTintColor: '#4e5d5c',
         tabBarLabelStyle: {
@@ -74,17 +62,17 @@ export default function BottomNavigation() {
       }}
     >
       <Tab.Screen
-        name="Dashboard"
-        component={TabScreens.Dashboard}
-        options={screenOptions('Dashboard')}
+        name="Navigation"
+        component={TabScreens.Navigation}
+        options={screenOptions('Navigation')}
       />
-      <Tab.Screen name="Search" component={TabScreens.Search} options={screenOptions('Search')} />
-      <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
+      <Tab.Screen name="Nearby" component={TabScreens.Nearby} options={screenOptions('Nearby')} />
       <Tab.Screen
-        name="Profile"
-        component={TabScreens.Profile}
-        options={screenOptions('Profile')}
+        name="Messages"
+        component={TabScreens.Messages}
+        options={screenOptions('Messages')}
       />
+      <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
     </Tab.Navigator>
   );
 }

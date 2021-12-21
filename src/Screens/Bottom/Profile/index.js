@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Container from '@components/Atoms/Container';
 
 const Profile = () => {
   return (
-    <View>
+    <Container>
       <Text>Profile</Text>
-    </View>
+    </Container>
   );
 };
 

@@ -1,35 +1,24 @@
-import React, { useRef, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Platform,
-  Dimensions,
-  Animated,
-} from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Platform, Dimensions } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
 const isIos = Platform.OS === 'ios';
 const { width } = Dimensions.get('window');
-const totalWidth = isIos ? width : width - 20;
+const totalWidth = width - 30;
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
-  const tabWidth = totalWidth / state?.routes?.length;
-  const translateValue = useRef(new Animated.Value(0)).current;
+  // const tabWidth = totalWidth / state?.routes?.length;
   if (focusedOptions?.tabBarVisible === false) {
     return null;
   }
 
   return (
     <View style={styles.container(insets.bottom)}>
-      {translateValue && (
-        <Animated.View style={styles.slider(colors.primary, translateValue, tabWidth)} />
-      )}
       {state?.routes?.map((route, index) => {
         const { options } = descriptors[route?.key];
         const label =
@@ -40,16 +29,6 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             : route?.name;
 
         const isFocused = state?.index === index;
-
-        useEffect(() => {
-          if (isFocused) {
-            Animated.spring(translateValue, {
-              toValue: index * tabWidth,
-              velocity: 10,
-              useNativeDriver: true,
-            }).start();
-          }
-        }, [isFocused]);
         const onPress = () => {
           const event = navigation.emit({
             type: 'tabPress',
@@ -60,11 +39,6 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           if (!isFocused && !event?.defaultPrevented) {
             navigation.navigate(route?.name);
           }
-          // Animated.spring(translateValue, {
-          //   toValue: index * tabWidth,
-          //   velocity: 10,
-          //   useNativeDriver: true,
-          // }).start();
         };
 
         const onLongPress = () => {
@@ -88,7 +62,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
             {options.tabBarIcon({
               focused: isFocused,
               color: isFocused ? colors.primary : '#7d7d7d',
-              size: 21,
+              size: 25,
             })}
             <Text style={styles.label(isFocused ? colors.primary : '#7d7d7d')}>{label}</Text>
           </TouchableOpacity>
@@ -101,17 +75,17 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
 const styles = StyleSheet.create({
   container: (bottom) => ({
     position: 'absolute',
-    bottom: isIos ? 0 : 5,
+    bottom: bottom,
     width: totalWidth,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     alignSelf: 'center',
     backgroundColor: '#fff',
-    borderRadius: isIos ? 0 : 30,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    paddingBottom: isIos ? bottom - 10 : 0,
+    borderRadius: 7,
+    padding: 6,
+    marginHorizontal: 10,
+    // paddingBottom: isIos ? bottom - 10 : 0,
     shadowColor: '#b89b70',
     shadowOffset: {
       width: 0,
@@ -120,16 +94,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 8,
-  }),
-  slider: (color, translateValue, tabWidth) => ({
-    position: 'absolute',
-    top: 0,
-    left: tabWidth / 4,
-    height: 3,
-    width: tabWidth / 2,
-    borderRadius: 10,
-    backgroundColor: color,
-    transform: [{ translateX: translateValue }],
   }),
   tabWrapper: {
     alignItems: 'center',
@@ -142,7 +106,7 @@ const styles = StyleSheet.create({
   label: (color) => ({
     marginTop: 4,
     color: color,
-    fontSize: 10,
+    fontSize: 13,
   }),
   badgeWrapper: (color) => ({
     position: 'absolute',

@@ -6,13 +6,14 @@ import Icon from 'react-native-remix-icon';
 import LinearGradient from 'react-native-linear-gradient';
 import VectorIcon from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
+import Container from '@components/Atoms/Container';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
 const LoadingAnim = require('@assets/JSON/loadingNav.json');
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <Container style={styles.container}>
       <View style={styles.section}>
         <Text>Custom SVG icons</Text>
         <RussiaSVG width={50} height={50} />
@@ -44,7 +45,7 @@ const Home = () => {
           </LinearGradient>
         </TouchableOpacity>
       </View>
-    </View>
+    </Container>
   );
 };
 
