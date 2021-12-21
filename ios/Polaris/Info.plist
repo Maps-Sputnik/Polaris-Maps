@@ -64,6 +64,10 @@
 		<string>Ubuntu-Medium.ttf</string>
 		<string>Ubuntu-MediumItalic.ttf</string>
 		<string>Ubuntu-Regular.ttf</string>
+		<string>Lato-Black.ttf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-Thin.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

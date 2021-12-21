@@ -10,16 +10,20 @@
 		00E356F31AD99517003FC87E /* PolarisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PolarisTests.m */; };
 		0407550A276C574800620F50 /* Polaris-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04075509276C574800620F50 /* Polaris-icons.ttf */; };
 		0407550B276C574900620F50 /* Polaris-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04075509276C574800620F50 /* Polaris-icons.ttf */; };
+		0686020449944DF385A92006 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29C43F9E35E24BA2893BD697 /* Lato-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1853414E8CC446818CB265FD /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B4B5A1D61D2474BB7CC17FE /* Lato-Black.ttf */; };
 		1D675C49ED414A4C9B8AC3F2 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D699DAC0C31C46FC86F90E4D /* Ubuntu-BoldItalic.ttf */; };
+		27CE071FBA5942BA82941284 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC829E85B40647E494B71165 /* Lato-Regular.ttf */; };
 		3CFEE27B74E04C10B39646E3 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA08463FD9E9409AAFA5ECEB /* Ubuntu-Regular.ttf */; };
 		7FBD4E11E6D3E636D1A245EE /* libPods-Polaris.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9518F775ACA55BD22F2CF3D /* libPods-Polaris.a */; };
 		811E7593270F4989B53CD317 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35BE6274C1AA4D32ABF2EAD3 /* Ubuntu-Italic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		963387024A0E4983A872647F /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16925C7DE8FA410697B8A449 /* Ubuntu-Medium.ttf */; };
 		AEED86E033AA403CBB4CFF84 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A327AF90B53464697330011 /* Ubuntu-MediumItalic.ttf */; };
+		B317E3AAEED14E4791820B1B /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD9BDC75CBE0404C838BC5A6 /* Lato-Thin.ttf */; };
 		B74FC08F4186451B8F6830FE /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F77142FEA94748D3BCA0E735 /* Ubuntu-LightItalic.ttf */; };
 		D33C8B1A69414912B04541E3 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 379EEA2E2F7D4705934BE4FB /* Ubuntu-Light.ttf */; };
 		DFC1E22978534D9F9A18889D /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3EC1B0A4686436B8A1EE701 /* Ubuntu-Bold.ttf */; };
@@ -66,12 +70,14 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Polaris/main.m; sourceTree = "<group>"; };
 		15D9272909AFF80CA1A84104 /* Pods-Polaris-PolarisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polaris-PolarisTests.debug.xcconfig"; path = "Target Support Files/Pods-Polaris-PolarisTests/Pods-Polaris-PolarisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		16925C7DE8FA410697B8A449 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Medium.ttf"; path = "../src/Assets/Fonts/Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		29C43F9E35E24BA2893BD697 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../src/Assets/Fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
 		29F9CF2E7F68FAB8029E1720 /* Pods-Polaris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Polaris.release.xcconfig"; path = "Target Support Files/Pods-Polaris/Pods-Polaris.release.xcconfig"; sourceTree = "<group>"; };
 		3378BADC55644416AA4931FC /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		35BE6274C1AA4D32ABF2EAD3 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Italic.ttf"; path = "../src/Assets/Fonts/Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		379EEA2E2F7D4705934BE4FB /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Light.ttf"; path = "../src/Assets/Fonts/Ubuntu-Light.ttf"; sourceTree = "<group>"; };
 		38E6973C1D31436E87C2DBB0 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		4777FA6EDC33D2EF31C32EDF /* libPods-Polaris-PolarisTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Polaris-PolarisTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4B5A1D61D2474BB7CC17FE /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../src/Assets/Fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		4FDA292AF04D4D12B4A02E14 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		7008C8EFA56844C7AB85A0EC /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		717430226DCE4343A36E5358 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		87C92A2F8562412CAC0A9C4B /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		8A327AF90B53464697330011 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-MediumItalic.ttf"; path = "../src/Assets/Fonts/Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
 		9B626513879F4913B4D70B8A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		AC829E85B40647E494B71165 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../src/Assets/Fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		AD9BDC75CBE0404C838BC5A6 /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../src/Assets/Fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		B1590C5A53264EA4AF8B40DA /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		B3EC1B0A4686436B8A1EE701 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Bold.ttf"; path = "../src/Assets/Fonts/Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		B930CD41476D41B4BD121E32 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -241,6 +249,10 @@
 				FDA1AD883C3745BCA1E76A84 /* Octicons.ttf */,
 				B1590C5A53264EA4AF8B40DA /* SimpleLineIcons.ttf */,
 				87C92A2F8562412CAC0A9C4B /* Zocial.ttf */,
+				4B4B5A1D61D2474BB7CC17FE /* Lato-Black.ttf */,
+				29C43F9E35E24BA2893BD697 /* Lato-Bold.ttf */,
+				AC829E85B40647E494B71165 /* Lato-Regular.ttf */,
+				AD9BDC75CBE0404C838BC5A6 /* Lato-Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -362,6 +374,10 @@
 				963387024A0E4983A872647F /* Ubuntu-Medium.ttf in Resources */,
 				AEED86E033AA403CBB4CFF84 /* Ubuntu-MediumItalic.ttf in Resources */,
 				3CFEE27B74E04C10B39646E3 /* Ubuntu-Regular.ttf in Resources */,
+				1853414E8CC446818CB265FD /* Lato-Black.ttf in Resources */,
+				0686020449944DF385A92006 /* Lato-Bold.ttf in Resources */,
+				27CE071FBA5942BA82941284 /* Lato-Regular.ttf in Resources */,
+				B317E3AAEED14E4791820B1B /* Lato-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

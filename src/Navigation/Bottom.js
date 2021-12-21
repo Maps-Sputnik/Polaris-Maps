@@ -5,6 +5,8 @@ import TabScreens from '@screens/Bottom';
 import CustomTabBar from '@components/Organisms/CustomTabBar';
 import CustomHeader from '@components/Organisms/CustomHeader';
 
+import { colors } from '@utils';
+
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigation() {
@@ -25,18 +27,32 @@ export default function BottomNavigation() {
             <Icon
               name={focused ? 'navigation-fill' : 'navigation-line'}
               size={size}
-              color={color}
+              color={focused ? colors.main : color}
             />
           );
         case 'Messages':
-          return <Icon name={focused ? 'chat-1-fill' : 'chat-1-line'} size={size} color={color} />;
+          return (
+            <Icon
+              name={focused ? 'chat-1-fill' : 'chat-1-line'}
+              size={size}
+              color={focused ? colors.main : color}
+            />
+          );
         case 'Saved':
           return (
-            <Icon name={focused ? 'bookmark-fill' : 'bookmark-line'} size={size} color={color} />
+            <Icon
+              name={focused ? 'bookmark-fill' : 'bookmark-line'}
+              size={size}
+              color={focused ? colors.main : color}
+            />
           );
         case 'Settings':
           return (
-            <Icon name={focused ? 'settings-fill' : 'settings-line'} size={size} color={color} />
+            <Icon
+              name={focused ? 'settings-fill' : 'settings-line'}
+              size={size}
+              color={focused ? colors.main : color}
+            />
           );
       }
     };
@@ -53,8 +69,8 @@ export default function BottomNavigation() {
       screenOptions={{
         headerShown: true,
         header: renderHeader,
-        tabBarActiveTintColor: '#003566',
-        tabBarInactiveTintColor: '#4e5d5c',
+        tabBarActiveTintColor: colors.main,
+        tabBarInactiveTintColor: colors.secondary,
         tabBarLabelStyle: {
           fontSize: 13,
           fontFamily: 'Ubuntu-Regular',
