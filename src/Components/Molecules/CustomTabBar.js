@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import I18n from '@utils/i18n';
 
 const isIos = Platform.OS === 'ios';
 const { width } = Dimensions.get('window');
@@ -91,9 +90,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               color: isFocused ? colors.primary : '#7d7d7d',
               size: 21,
             })}
-            <Text style={styles.label(isFocused ? colors.primary : '#7d7d7d')}>
-              {I18n.t(label)}
-            </Text>
+            <Text style={styles.label(isFocused ? colors.primary : '#7d7d7d')}>{label}</Text>
           </TouchableOpacity>
         );
       })}
