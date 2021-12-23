@@ -20,9 +20,8 @@ export default function DrawerNavigator() {
         drawerItemStyle: {
           borderRadius: 10,
           width: '95%',
-          borderBottomWidth: 1,
-          borderBottomColor: colors.bg,
           alignSelf: 'center',
+          marginVertical: 5,
         },
         drawerStyle: {
           backgroundColor: 'white',
@@ -30,51 +29,15 @@ export default function DrawerNavigator() {
         },
         drawerLabelStyle: {
           color: 'black',
-          fontSize: sizes.h4,
-          fontFamily: 'Lato-Regular',
+          fontSize: sizes.h5,
+          fontFamily: 'Lato-Bold',
         },
         drawerActiveBackgroundColor: colors.bg,
       }}
     >
-      <Drawer.Screen
-        name="Home"
-        component={BottomNavigator}
-        options={{
-          drawerIcon: ({ focused, color, size }) => (
-            <IonIcons
-              name="ios-home"
-              size={size}
-              color={focused ? colors.main : colors.secondary}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Help"
-        component={DrawerScreens.Help}
-        options={{
-          drawerIcon: ({ focused, color, size }) => (
-            <IonIcons
-              name="ios-help-circle-outline"
-              size={size}
-              color={focused ? colors.main : colors.secondary}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Privacy&Policy"
-        component={DrawerScreens.Help}
-        options={{
-          drawerIcon: ({ focused, color, size }) => (
-            <MaterialIcons
-              name="privacy-tip"
-              size={size}
-              color={focused ? colors.main : colors.secondary}
-            />
-          ),
-        }}
-      />
+      <Drawer.Screen name="Home" component={BottomNavigator} />
+      <Drawer.Screen name="Help" component={DrawerScreens.Help} />
+      <Drawer.Screen name="Privacy&Policy" component={DrawerScreens.Help} />
     </Drawer.Navigator>
   );
 }

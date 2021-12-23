@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { sizes } from '@utils';
+import Opacity from '@components/Atoms/TouchableOpacity';
+import { useNavigation } from '@react-navigation/native';
 
 function CustomDrawerContent(props) {
+  const navigation = useNavigation();
   return (
     <DrawerContentScrollView {...props} showsVerticalScrollIndicator={false} style={styles.custom}>
-      <TouchableOpacity style={styles.avatarCon}>
+      <Opacity style={styles.avatarCon} onPress={() => navigation.navigate('Settings')}>
         <Image source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
         <View style={styles.centered}>
           <Text style={styles.name}>John Doe</Text>
         </View>
-        <AntDesign name="right" size={sizes.icon * 0.8} color="black" />
-      </TouchableOpacity>
+      </Opacity>
       <DrawerItemList {...props} style={styles.itemsList} />
     </DrawerContentScrollView>
   );
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: 'Lato-Bold',
     color: 'black',
-    fontSize: sizes.h3,
+    fontSize: sizes.h4,
     marginHorizontal: 10,
   },
 });
