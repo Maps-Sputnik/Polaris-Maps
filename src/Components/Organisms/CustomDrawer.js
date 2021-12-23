@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { sizes } from '@utils';
@@ -8,11 +9,11 @@ function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} showsVerticalScrollIndicator={false} style={styles.custom}>
       <TouchableOpacity style={styles.avatarCon}>
-        <Image source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
+        <FastImage source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
         <View style={styles.centered}>
           <Text style={styles.name}>John Doe</Text>
         </View>
-        <AntDesign name="right" size={sizes.icon * 0.8} color="black" />
+        {/* <AntDesign name="right" size={sizes.icon * 0.8} color="black" /> */}
       </TouchableOpacity>
       <DrawerItemList {...props} style={styles.itemsList} />
     </DrawerContentScrollView>
@@ -36,13 +37,10 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 20,
   },
-  nameCon: {
-    marginHorizontal: 10,
-  },
   name: {
     fontFamily: 'Lato-Bold',
     color: 'black',
-    fontSize: sizes.h3,
+    fontSize: sizes.h4,
     marginHorizontal: 10,
   },
 });

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from '@components/Organisms/CustomDrawer';
-import BottomNavigator from './Bottom';
+import BottomNavigator from '../Bottom';
 import IonIcons from 'react-native-vector-icons/Ionicons';
+import RemixIcon from 'react-native-remix-icon';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DrawerScreens from '@screens/Drawer';
 
@@ -20,8 +21,8 @@ export default function DrawerNavigator() {
         drawerItemStyle: {
           borderRadius: 10,
           width: '95%',
-          borderBottomWidth: 1,
-          borderBottomColor: colors.bg,
+          // borderBottomWidth: 1,
+          // borderBottomColor: colors.bg,
           alignSelf: 'center',
         },
         drawerStyle: {
@@ -30,32 +31,32 @@ export default function DrawerNavigator() {
         },
         drawerLabelStyle: {
           color: 'black',
-          fontSize: sizes.h4,
+          fontSize: sizes.h6,
           fontFamily: 'Lato-Regular',
         },
         drawerActiveBackgroundColor: colors.bg,
       }}
     >
-      <Drawer.Screen
-        name="Home"
+      {/* <Drawer.Screen
+        name="Map"
         component={BottomNavigator}
         options={{
           drawerIcon: ({ focused, color, size }) => (
-            <IonIcons
-              name="ios-home"
+            <RemixIcon
+              name={focused ? 'road-map-fill' : 'road-map-line'}
               size={size}
               color={focused ? colors.main : colors.secondary}
             />
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="Help"
         component={DrawerScreens.Help}
         options={{
           drawerIcon: ({ focused, color, size }) => (
-            <IonIcons
-              name="ios-help-circle-outline"
+            <RemixIcon
+              name={focused ? 'question-fill' : 'question-line'}
               size={size}
               color={focused ? colors.main : colors.secondary}
             />
@@ -63,12 +64,12 @@ export default function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name="Privacy&Policy"
+        name={'Privacy & Policy'}
         component={DrawerScreens.Help}
         options={{
           drawerIcon: ({ focused, color, size }) => (
-            <MaterialIcons
-              name="privacy-tip"
+            <RemixIcon
+              name={focused ? 'shield-check-fill' : 'shield-check-line'}
               size={size}
               color={focused ? colors.main : colors.secondary}
             />
