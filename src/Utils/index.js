@@ -1,8 +1,9 @@
 export const colors = {
   main: '#003566',
   secondary: '#4e5d5c',
-  icon: 'black',
+  icon: '#003566',
   bg: '#e5e5e5',
+  text: '#14213d',
 };
 
 export const sizes = {
