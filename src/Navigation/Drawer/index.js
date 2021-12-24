@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from '@components/Organisms/CustomDrawer';
 import RemixIcon from 'react-native-remix-icon';
 import DrawerScreens from '@screens/Drawer';
+import BottomNavigator from '@navigation/Bottom';
 
 import { SIZES as sizes, COLORS as colors } from '@constants';
 
@@ -10,7 +11,7 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
-      initialRouteName="Home"
+      initialRouteName="Map"
       drawerContent={(props) => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
@@ -33,7 +34,7 @@ export default function DrawerNavigator() {
         drawerActiveBackgroundColor: colors.bg,
       }}
     >
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="Map"
         component={BottomNavigator}
         options={{
@@ -45,7 +46,7 @@ export default function DrawerNavigator() {
             />
           ),
         }}
-      /> */}
+      />
       <Drawer.Screen
         name="Help"
         component={DrawerScreens.Help}

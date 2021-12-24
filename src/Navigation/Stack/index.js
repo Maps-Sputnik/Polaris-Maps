@@ -11,7 +11,7 @@ const StackNavigator = () => {
   return (
     <ErrorBoundary>
       <Stack.Navigator
-        initialRouteName="Bottom"
+        initialRouteName="Drawer"
         // component={DrawerNavigator}
         screenOptions={{
           gestureEnabled: true,
@@ -19,8 +19,8 @@ const StackNavigator = () => {
           ...TransitionPresets.SlideFromRightIOS,
         }}
       >
-        <Stack.Screen name="Bottom" component={BottomNavigator} />
         <Stack.Screen name="Drawer" component={DrawerNavigator} />
+        <Stack.Screen name="Bottom" component={BottomNavigator} />
         <Stack.Screen name="Search" component={StackScreens.Search} />
       </Stack.Navigator>
     </ErrorBoundary>

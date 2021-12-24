@@ -4,6 +4,7 @@ import FontAwesome from 'react-native-vector-icons/Ionicons';
 import RNRestart from 'react-native-restart';
 import { withTheme } from 'react-native-paper';
 import { connect } from 'react-redux';
+import { COLORS } from '@constants';
 // import I18n from '@utils/i18n'
 // import {
 //   SEND_ERROR_REQUEST as sendError,
@@ -35,15 +36,15 @@ export class ErrorBoundary extends React.Component {
   render() {
     if (this.state.error) {
       return (
-        <SafeAreaView style={styles.safeAreaView(this.colors.primary)}>
-          <View style={styles.container(this.colors.primary)}>
+        <SafeAreaView style={styles.safeAreaView}>
+          <View style={styles.container}>
             <Text>
               <FontAwesome name="ios-information-circle-outline" size={60} color="#fff" />
             </Text>
             <Text style={styles.error}>Unknown error occured</Text>
             <Text style={styles.errorContent}>Sorry for the inconvenience.</Text>
             <TouchableOpacity onPress={this.handleClick} style={styles.button}>
-              <Text style={styles.buttonText(this.colors.primary)}>Restart</Text>
+              <Text style={styles.buttonText}>Restart</Text>
             </TouchableOpacity>
           </View>
         </SafeAreaView>
@@ -55,17 +56,17 @@ export class ErrorBoundary extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  safeAreaView: (color) => ({
+  safeAreaView: {
     flex: 1,
-    backgroundColor: color,
-  }),
-  container: (color) => ({
+    backgroundColor: COLORS.bg,
+  },
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: color,
+    backgroundColor: COLORS.bg,
     paddingHorizontal: 20,
-  }),
+  },
   content: {
     flex: 1,
     justifyContent: 'center',
@@ -91,11 +92,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 10,
   },
-  buttonText: (color) => ({
+  buttonText: {
     fontSize: 16,
-    color,
+    color: COLORS.text,
     fontWeight: 'bold',
-  }),
+  },
 });
 
 export default connect()(withTheme(ErrorBoundary));
