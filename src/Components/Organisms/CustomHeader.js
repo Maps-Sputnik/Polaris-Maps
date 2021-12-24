@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-remix-icon';
 import { useNavigation } from '@react-navigation/native';
 import CustomTouchableOpacity from '@components/Atoms/TouchableOpacity';
+import { MAIN_HEADER } from '@constants';
 
 const CustomHeader = (props) => {
   const insets = useSafeAreaInsets();
@@ -23,8 +24,8 @@ const CustomHeader = (props) => {
 const styles = StyleSheet.create({
   container: (insets) => ({
     position: 'absolute',
-    top: insets.top + 10,
-    height: 50,
+    top: insets.top + MAIN_HEADER.top,
+    height: MAIN_HEADER.height,
     width: '95%',
     alignSelf: 'center',
     backgroundColor: '#fff',

@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { sizes } from '@utils';
+import { SIZES as sizes } from '@constants';
+import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
 function CustomDrawerContent(props) {
   return (

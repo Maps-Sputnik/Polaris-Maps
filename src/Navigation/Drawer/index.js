@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from '@components/Organisms/CustomDrawer';
-import BottomNavigator from '../Bottom';
-import IonIcons from 'react-native-vector-icons/Ionicons';
 import RemixIcon from 'react-native-remix-icon';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DrawerScreens from '@screens/Drawer';
 
-import { colors, sizes } from '@utils';
+import { SIZES as sizes, COLORS as colors } from '@constants';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
@@ -21,9 +18,8 @@ export default function DrawerNavigator() {
         drawerItemStyle: {
           borderRadius: 10,
           width: '95%',
-          // borderBottomWidth: 1,
-          // borderBottomColor: colors.bg,
           alignSelf: 'center',
+          marginVertical: 5,
         },
         drawerStyle: {
           backgroundColor: 'white',

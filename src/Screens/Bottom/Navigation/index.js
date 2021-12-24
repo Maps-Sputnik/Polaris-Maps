@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Container from '@components/Atoms/Container';
-import { colors } from '@utils/index';
+import { COLORS as colors } from '@constants';
 import MapView, { Marker } from 'react-native-maps';
 
 const Dashboard = ({ navigation }) => {
