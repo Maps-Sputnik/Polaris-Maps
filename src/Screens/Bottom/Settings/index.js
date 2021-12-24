@@ -1,85 +1,72 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Container from '@components/Atoms/Container';
-import Opacity from '@components/Atoms/TouchableOpacity';
-import { colors, sizes } from '@utils';
+import StyledIcon from '@components/Atoms/StyledIcon';
+import Touchable from '@components/Atoms/TouchableOpacity';
+import { SIZES as sizes, COLORS as colors } from '@constants';
+import styles from './styles';
 
 const Settings = () => {
-  const { height } = Dimensions.get('window');
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
 
-  function renderIconWithBg(
-    iconName,
-    iconBg = '#e9ecef',
-    iconSize = sizes.icon * 1.3,
-    leftIcon = false
-  ) {
+  function renderRow(label, path, icon) {
     return (
-      <View style={styles.iconBg(iconBg || '#e9ecef', leftIcon ? 50 : 10, leftIcon ? 8 : 5)}>
-        <AntDesign
-          name={iconName || 'info'}
-          size={iconSize || sizes.icon * 1.3}
-          color={colors.icon}
+      <TouchableOpacity style={styles.row} onPress={() => navigation.navigate(path || 'Home')}>
+        <StyledIcon
+          name={icon.name}
+          size={icon.size}
+          color={icon.color}
+          style={styles.iconBg(icon.bg, 50, 13)}
         />
-      </View>
+        <View style={styles.centered}>
+          <Text style={styles.regular}>{label} </Text>
+        </View>
+        <Touchable hitSlop={10} style={styles.arrowContainer}>
+          <StyledIcon
+            name={'arrow-right-s-line'}
+            size={sizes.icon * 0.7}
+            color={colors.icon}
+            style={styles.iconBg('#f5f5f5', 10, 9)}
+          />
+        </Touchable>
+      </TouchableOpacity>
     );
   }
 
-  function renderRow(label, path = 'Home', icons, bgs, sizes) {
-    return (
-      <Opacity style={styles.row} onPress={() => navigation.navigate(path || 'Home')}>
-        {renderIconWithBg(icons[0], bgs[0], sizes[0], true)}
-        <View style={styles.centered}>
-          <Text style={styles.regular}>{label || ''} </Text>
-        </View>
-        {renderIconWithBg(icons[1], bgs[1], sizes[1])}
-      </Opacity>
-    );
-  }
   return (
-    <Container
-      style={[
-        styles.container,
-        {
-          paddingTop: height * 0.1,
-        },
-      ]}
-    >
+    <Container style={styles.container(insets)}>
       <View style={styles.subCon}>
         <Text style={styles.headerTxt}>Settings</Text>
         <View style={styles.accountCon}>
           <Text style={styles.labelTxt}>Account</Text>
-          {renderRow(
-            'John Doe',
-            'Home',
-            ['user', 'right'],
-            ['#fec89a', null],
-            [sizes.icon * 1.2, sizes.icon * 0.8]
-          )}
+          {renderRow('John Doe', 'Home', {
+            name: 'user-6-fill',
+            size: sizes.icon - 5,
+            bg: '#e6e6e6',
+            color: '#a1a1a1',
+          })}
           <Text style={styles.labelTxt}>Settings</Text>
-          {renderRow(
-            'Language',
-            'Home',
-            ['wechat', 'right'],
-            ['#e76f51', null],
-            [sizes.icon * 1.2, sizes.icon * 0.8]
-          )}
-          {renderRow(
-            'Notifications',
-            'Home',
-            ['notification', 'right'],
-            ['#48cae4', null],
-            [sizes.icon * 1.2, sizes.icon * 0.8]
-          )}
-          {renderRow(
-            'Help',
-            'Home',
-            ['infocirlceo', 'right'],
-            ['#d8e2dc', null],
-            [sizes.icon * 1.2, sizes.icon * 0.8]
-          )}
+          {renderRow('Language', 'Home', {
+            name: 'global-fill',
+            size: sizes.icon - 5,
+            bg: '#d9ffe2',
+            color: '#1ab03d',
+          })}
+          {renderRow('Notifications', 'Home', {
+            name: 'notification-3-fill',
+            size: sizes.icon - 5,
+            bg: '#fceccc',
+            color: '#e8a620',
+          })}
+          {renderRow('Help', 'Home', {
+            name: 'error-warning-fill',
+            size: sizes.icon - 5,
+            bg: '#d9e9ff',
+            color: '#498ff2',
+          })}
         </View>
       </View>
     </Container>
@@ -87,48 +74,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    flex: 1,
-  },
-  subCon: {
-    paddingHorizontal: 20,
-  },
-  headerTxt: {
-    fontFamily: 'Lato-Black',
-    color: colors.text,
-    fontSize: sizes.h1,
-  },
-  accountCon: {
-    marginVertical: 20,
-  },
-  labelTxt: {
-    fontFamily: 'Lato-Bold',
-    color: colors.text,
-    fontSize: sizes.h3,
-    marginTop: 25,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginVertical: 20,
-  },
-  centered: {
-    flex: 1,
-    paddingHorizontal: 10,
-  },
-  iconBg: (bgc, border, padd) => ({
-    backgroundColor: bgc,
-    padding: padd,
-    borderRadius: border,
-  }),
-  regular: {
-    fontFamily: 'Lato-Bold',
-    color: colors.text,
-    fontSize: sizes.h4 * 1.1,
-    textAlign: 'left',
-  },
-});

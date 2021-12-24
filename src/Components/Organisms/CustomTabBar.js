@@ -4,7 +4,7 @@ import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
-import { colors } from '@utils';
+import { COLORS as colors } from '@constants';
 
 const isIos = Platform.OS === 'ios';
 const { width } = Dimensions.get('window');

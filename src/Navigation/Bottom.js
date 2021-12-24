@@ -5,7 +5,7 @@ import TabScreens from '@screens/Bottom';
 import CustomTabBar from '@components/Organisms/CustomTabBar';
 import CustomHeader from '@components/Organisms/CustomHeader';
 
-import { colors } from '@utils';
+import { COLORS as colors } from '@constants';
 
 const Tab = createBottomTabNavigator();
 

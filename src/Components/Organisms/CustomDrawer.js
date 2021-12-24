@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { sizes } from '@utils';
+import { SIZES as sizes } from '@constants';
 import Opacity from '@components/Atoms/TouchableOpacity';
 import { useNavigation } from '@react-navigation/native';
 

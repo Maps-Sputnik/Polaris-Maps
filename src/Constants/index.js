@@ -1,4 +1,4 @@
-export const colors = {
+export const COLORS = {
   main: '#003566',
   secondary: '#4e5d5c',
   icon: '#003566',
@@ -6,7 +6,7 @@ export const colors = {
   text: '#14213d',
 };
 
-export const sizes = {
+export const SIZES = {
   h1: 36,
   h2: 30,
   h3: 24,
@@ -20,4 +20,9 @@ export const sizes = {
   margin: 5,
   border: 1,
   icon: 30,
+};
+
+export const MAIN_HEADER = {
+  height: 50,
+  top: 10,
 };

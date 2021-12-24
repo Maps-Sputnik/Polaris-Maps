@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Container = (props) => {
   const insets = useSafeAreaInsets();
   const { style, children, ...rest } = props;
   return (
-    <View style={[styles.container(insets), style]} {...rest}>
+    <ScrollView contentContainerStyle={[styles.container(insets), style]} {...rest}>
       {children}
-    </View>
+    </ScrollView>
   );
 };
 

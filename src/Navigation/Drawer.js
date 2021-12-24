@@ -6,7 +6,7 @@ import IonIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DrawerScreens from '@screens/Drawer';
 
-import { colors, sizes } from '@utils';
+import { SIZES as sizes, COLORS as colors } from '@constants';
 
 const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
