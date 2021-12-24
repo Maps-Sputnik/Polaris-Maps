@@ -1,28 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import Container from '@components/Atoms/Container';
 import { COLORS as colors } from '@constants';
-import MapView, { Marker } from 'react-native-maps';
+import MapboxGL from '@react-native-mapbox-gl/maps';
 
-const Dashboard = ({ navigation }) => {
+const Dashboard = () => {
+  const [coordinates] = useState([69.294861, 41.316441]);
+
   return (
     <Container style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: 40.374132,
-          longitude: 71.472253,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      >
-        <Marker
-          coordinate={{
-            latitude: 40.374132,
-            longitude: 71.472253,
-          }}
-        />
-      </MapView>
+      <MapboxGL.MapView style={styles.map} zoomEnabled={true}>
+        <MapboxGL.UserLocation />
+        <MapboxGL.Camera zoomLevel={4} centerCoordinate={coordinates} />
+        <MapboxGL.PointAnnotation coordinate={coordinates} id={'asd'} />
+      </MapboxGL.MapView>
     </Container>
   );
 };

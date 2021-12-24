@@ -35,8 +35,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Please choose "Always allow", otherwise, some functionalities might not be available.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please choose "Always allow", otherwise, some functionalities might not be available.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We're using your location to navigate to the destination and show you the places nearby and the place you search</string>
+	<string>Please choose "Always allow", otherwise, some functionalities might not be available.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -68,6 +72,10 @@
 		<string>Lato-Bold.ttf</string>
 		<string>Lato-Regular.ttf</string>
 		<string>Lato-Thin.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

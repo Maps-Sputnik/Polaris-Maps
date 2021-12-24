@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import userReducer from './User';
+import UserReducer from './User';
+import MapReducer from './Map';
 // import { deleteToken } from '@services/HandleToken'
 
 const appReducer = combineReducers({
-  user: userReducer,
+  user: UserReducer,
+  map: MapReducer,
 });
 
 const RootReducer = (state, action) => {
