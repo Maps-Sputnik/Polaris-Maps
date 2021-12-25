@@ -290,6 +290,8 @@ PODS:
   - React-jsinspector (0.66.4)
   - React-logger (0.66.4):
     - glog
+  - react-native-contacts (7.0.3):
+    - React-Core
   - react-native-location (2.5.0):
     - React
   - react-native-mapbox-gl (8.5.0):
@@ -482,6 +484,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-contacts (from `../node_modules/react-native-contacts`)
   - react-native-location (from `../node_modules/react-native-location`)
   - "react-native-mapbox-gl (from `../node_modules/@react-native-mapbox-gl/maps`)"
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
@@ -575,6 +578,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-contacts:
+    :path: "../node_modules/react-native-contacts"
   react-native-location:
     :path: "../node_modules/react-native-location"
   react-native-mapbox-gl:
@@ -671,6 +676,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 94ce921e1d8ce7023366873ec371f3441383b396
   React-jsinspector: d0374f7509d407d2264168b6d0fad0b54e300b85
   React-logger: 933f80c97c633ee8965d609876848148e3fef438
+  react-native-contacts: 0568645a2cd0b625c4d1dc8623648a42b2a5d24f
   react-native-location: 5a40ec1cc6abf2f6d94df979f98ec76c3a415681
   react-native-mapbox-gl: 955d2c064b56ef058b9cc0fbbf6cf743b05c928e
   react-native-netinfo: 27f287f2d191693f3b9d01a4273137fcf91c3b5d
@@ -704,6 +710,6 @@ SPEC CHECKSUMS:
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 7ff6558316290b03c81cf591d9b4bca059a35a95
+PODFILE CHECKSUM: bc54196a02e6929e07b79e5ae95300b813085572
 
 COCOAPODS: 1.10.1

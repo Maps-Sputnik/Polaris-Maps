@@ -192,10 +192,11 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation project(':react-native-vector-icons')
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation "com.google.android.gms:play-services-base:16.0.1"
     implementation "com.google.android.gms:play-services-location:16.0.0"
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-contacts')
 
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {

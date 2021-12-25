@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Text, View, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Contacts from 'react-native-contacts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Container from '@components/Atoms/Container';
 import FastImage from 'react-native-fast-image';
@@ -8,6 +9,7 @@ import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import Touchable from '@components/Atoms/TouchableOpacity';
+import { requestContactsPermission } from '@utils/Permissions';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 import { staticUsers } from '@constants/dummy';
 import styles from './styles';
@@ -60,7 +62,25 @@ const Messages = () => {
 
   function importContacts() {
     // to be changed later
-    setUsersD(staticUsers);
+    // setUsersD(staticUsers);
+    const getContacts = async () => {
+      try {
+        const contacts = await Contacts.getAll();
+        return contacts;
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    requestContactsPermission().then((granted) => {
+      if (granted) {
+        console.log('contacts permission granted');
+        getContacts().then((contacts) => {
+          console.log(contacts);
+        });
+      } else {
+        console.log('contacts permission denied');
+      }
+    });
   }
   // component funcs
   function renderRow(user) {

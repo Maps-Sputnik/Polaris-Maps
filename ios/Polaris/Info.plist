@@ -35,6 +35,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts are needed to connect you with your friends</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Please choose "Always allow", otherwise, some functionalities might not be available.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
