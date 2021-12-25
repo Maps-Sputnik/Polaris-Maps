@@ -27,7 +27,7 @@ const Dashboard = () => {
       <MapboxGL.MapView
         style={styles.map}
         zoomEnabled={true}
-        // styleURL="mapbox://styles/polaris-maps/ckxkpuan6lmpk15o5is31ipm7"
+        styleURL="mapbox://styles/polaris-maps/ckxln0bve2t5814krx77s65hl"
       >
         <MapboxGL.UserLocation />
         <MapboxGL.Camera zoomLevel={13} centerCoordinate={coordinates} />
