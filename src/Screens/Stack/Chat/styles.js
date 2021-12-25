@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
   }),
+  avatarImg: {
+    width: 60,
+    height: 60,
+    borderRadius: 60,
+    resizeMode: 'cover',
+  },
 });
 
 export default styles;
