@@ -20,6 +20,7 @@ const StackNavigator = () => {
       >
         <Stack.Screen name="Drawer" component={DrawerNavigator} />
         <Stack.Screen name="Search" component={StackScreens.Search} />
+        <Stack.Screen name="Chat" component={StackScreens.Chat} />
       </Stack.Navigator>
     </ErrorBoundary>
   );

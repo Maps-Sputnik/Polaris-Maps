@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
   }),
   labelTxt: {
     fontFamily: 'Lato-Bold',
-    fontSize: sizes.h3,
+    fontSize: sizes.h4 * 1.2,
     color: 'black',
     marginHorizontal: sizes.padding,
+    marginVertical: 5,
   },
   chatRow: {
     flexDirection: 'row',
@@ -66,14 +67,35 @@ const styles = StyleSheet.create({
     fontSize: sizes.h6,
     color: '#495057',
   },
-  editCon: {
+  toolsCon: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingHorizontal: sizes.padding,
   },
-  editBtns: {
+  toolBtn: {
     marginHorizontal: 10,
+  },
+  noChatCon: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  animation: {
+    width: 200,
+    height: 200,
+  },
+  gradientBtn: {
+    width: 200,
+    height: 45,
+  },
+  gradient: {
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
   },
 });
 
