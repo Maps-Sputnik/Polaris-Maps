@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import { StatusBar } from 'react-native';
+import { StatusBar, LogBox } from 'react-native';
 import MapboxGL, { Logger } from '@react-native-mapbox-gl/maps';
 import { useDispatch } from 'react-redux';
 import RNLocation from 'react-native-location';
@@ -12,6 +12,7 @@ import { SET_PERMISSION } from '@store/Actions/types';
 MapboxGL.setAccessToken(
   'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
 );
+LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 const App = () => {
   const dispatch = useDispatch();
