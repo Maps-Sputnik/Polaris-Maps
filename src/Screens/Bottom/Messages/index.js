@@ -9,36 +9,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
-
+import { staticUsers } from '@constants/dummy';
 import styles from './styles';
+
+const { height, width } = Dimensions.get('screen');
 
 const Messages = () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
-  const { height, width } = Dimensions.get('screen');
-  // states
-  let staticUsers = [
-    {
-      id: 0,
-      name: 'John Doe',
-      avatar: require('@assets/Images/person.jpg'),
-    },
-    {
-      id: 1,
-      name: 'Jenice Doe',
-      avatar: require('@assets/Images/person.jpg'),
-    },
-    {
-      id: 2,
-      name: 'John Doe',
-      avatar: require('@assets/Images/person.jpg'),
-    },
-    {
-      id: 3,
-      name: 'Jenice Doe',
-      avatar: require('@assets/Images/person.jpg'),
-    },
-  ];
 
   const [selected, setSelected] = useState([]);
   const [usersD, setUsersD] = useState();
@@ -61,7 +39,7 @@ const Messages = () => {
 
   function handleLongPress(_id) {
     if (selected.includes(_id)) {
-      setSelected((prev) => prev.filter((item) => item != _id));
+      setSelected((prev) => prev.filter((item) => item !== _id));
     } else {
       setSelected((prev) => [...prev, _id]);
     }
@@ -92,7 +70,7 @@ const Messages = () => {
         style={[
           styles.chatRow,
           {
-            width: width * 0.95,
+            width: '95%',
             height: height * 0.08,
             paddingHorizontal: selected.includes(id) ? sizes.padding : 0,
             backgroundColor: selected.includes(id) ? '#a9d6e5' : 'white',

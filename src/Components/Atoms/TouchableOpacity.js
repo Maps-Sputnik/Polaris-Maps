@@ -5,11 +5,11 @@ const AnimatedTouchable = Animated.createAnimatedComponent(Pressable);
 
 const TouchableOpacityComponent = (props) => {
   const scale = useRef(new Animated.Value(1)).current;
-  const { style, children, ...rest } = props;
+  const { style, children, scaleTo, ...rest } = props;
 
   const scaleIn = () => {
     Animated.timing(scale, {
-      toValue: 0.92,
+      toValue: scaleTo ?? 0.92,
       duration: 100,
       useNativeDriver: true,
     }).start();

@@ -11,8 +11,4 @@ const StyledIcon = (props) => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {},
-// })
-
 export default StyledIcon;
