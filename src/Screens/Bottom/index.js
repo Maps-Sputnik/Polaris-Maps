@@ -1,5 +1,5 @@
 import Navigation from './Navigation';
-import Messages from './Search';
+import Messages from './Messages';
 import Saved from './Saved';
 import Settings from './Settings';
 
