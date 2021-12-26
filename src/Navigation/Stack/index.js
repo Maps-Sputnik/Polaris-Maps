@@ -1,9 +1,10 @@
 import React from 'react';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
-import ErrorBoundary from '../Components/Others/ErrorBoundary';
+import ErrorBoundary from '@components/Others/ErrorBoundary';
 import StackScreens from '@screens/Stack';
 
-import DrawerNavigator from './Drawer';
+import DrawerNavigator from '../Drawer';
+import BottomNavigator from '@navigation/Bottom';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
@@ -11,7 +12,7 @@ const StackNavigator = () => {
     <ErrorBoundary>
       <Stack.Navigator
         initialRouteName="Drawer"
-        component={DrawerNavigator}
+        // component={DrawerNavigator}
         screenOptions={{
           gestureEnabled: true,
           headerShown: false,
@@ -19,6 +20,7 @@ const StackNavigator = () => {
         }}
       >
         <Stack.Screen name="Drawer" component={DrawerNavigator} />
+        <Stack.Screen name="Bottom" component={BottomNavigator} />
         <Stack.Screen name="Search" component={StackScreens.Search} />
         <Stack.Screen name="Chat" component={StackScreens.Chat} />
       </Stack.Navigator>

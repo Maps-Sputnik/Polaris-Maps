@@ -1,20 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { SIZES as sizes } from '@constants';
-import Opacity from '@components/Atoms/TouchableOpacity';
-import { useNavigation } from '@react-navigation/native';
+import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
 function CustomDrawerContent(props) {
-  const navigation = useNavigation();
   return (
     <DrawerContentScrollView {...props} showsVerticalScrollIndicator={false} style={styles.custom}>
-      <Opacity style={styles.avatarCon} onPress={() => navigation.navigate('Settings')}>
-        <Image source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
+      <TouchableOpacity style={styles.avatarCon}>
+        <FastImage source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
         <View style={styles.centered}>
           <Text style={styles.name}>John Doe</Text>
         </View>
-      </Opacity>
+        {/* <AntDesign name="right" size={sizes.icon * 0.8} color="black" /> */}
+      </TouchableOpacity>
       <DrawerItemList {...props} style={styles.itemsList} />
     </DrawerContentScrollView>
   );
@@ -36,9 +36,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 20,
-  },
-  nameCon: {
-    marginHorizontal: 10,
   },
   name: {
     fontFamily: 'Lato-Bold',
