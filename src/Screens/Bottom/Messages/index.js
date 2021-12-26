@@ -15,7 +15,7 @@ import { requestContactsPermission } from '@utils/Permissions';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 import { staticUsers } from '@constants/dummy';
 import styles from './styles';
-import types from '@actions/types';
+import * as types from '@actions/types';
 
 const { height, width } = Dimensions.get('screen');
 
@@ -65,27 +65,28 @@ const Messages = () => {
   }
 
   function importContacts() {
+    dispatch({ type: types.GET_CONTACTS });
     // to be changed later
     // setUsersD(staticUsers);
-    const getContacts = async () => {
-      try {
-        const contacts = await Contacts.getAll();
-        return contacts;
-      } catch (err) {
-        console.warn(err);
-      }
-    };
-    requestContactsPermission().then((granted) => {
-      if (granted) {
-        console.log('contacts permission granted');
-        getContacts().then((contacts) => {
-          // console.log(contacts);
-          dispatch({ type: types.SET_CONTACTS, payload: contacts });
-        });
-      } else {
-        console.log('contacts permission denied');
-      }
-    });
+    // const getContacts = async () => {
+    //   try {
+    //     const contacts = await Contacts.getAll();
+    //     return contacts;
+    //   } catch (err) {
+    //     console.warn(err);
+    //   }
+    // };
+    // requestContactsPermission().then((granted) => {
+    //   if (granted) {
+    //     console.log('contacts permission granted');
+    //     getContacts().then((contacts) => {
+    //       // console.log(contacts);
+    //       dispatch({ type: types.SET_CONTACTS, payload: contacts });
+    //     });
+    //   } else {
+    //     console.log('contacts permission denied');
+    //   }
+    // });
   }
   // component funcs
   function renderRow(user) {

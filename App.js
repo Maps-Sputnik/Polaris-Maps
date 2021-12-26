@@ -3,10 +3,12 @@ import 'intl';
 import 'intl/locale-data/jsonp/en';
 import { StatusBar, LogBox } from 'react-native';
 import MapboxGL, { Logger } from '@react-native-mapbox-gl/maps';
-import { useDispatch } from 'react-redux';
+// import { }
+import { useDispatch, useSelector } from 'react-redux';
 import RNLocation from 'react-native-location';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from '@navigation/Stack';
+import Loading from '@components/Organisms/Loading';
 import { SET_PERMISSION } from '@store/Actions/types';
 
 MapboxGL.setAccessToken(
@@ -16,7 +18,7 @@ LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 const App = () => {
   const dispatch = useDispatch();
-
+  const { isLoading } = useSelector((state) => ({ isLoading: state.loader.general }));
   useEffect(() => {
     RNLocation.configure({
       allowsBackgroundLocationUpdates: true,
@@ -63,6 +65,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
       <StackNavigator />
+      {isLoading && <Loading />}
     </NavigationContainer>
   );
 };

@@ -20,6 +20,11 @@ export const requestContactsPermission = async () => {
       // console.warn(err);
     }
   } else {
-    return true;
+    const isGranted = await Contacts.requestPermission();
+    if (isGranted === 'authorized') {
+      return true;
+    } else {
+      return false;
+    }
   }
 };
