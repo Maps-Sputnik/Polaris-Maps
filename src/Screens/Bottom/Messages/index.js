@@ -3,22 +3,26 @@ import { Text, View, Dimensions, TouchableOpacity, StyleSheet } from 'react-nati
 import { useNavigation } from '@react-navigation/native';
 import Contacts from 'react-native-contacts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Container from '@components/Atoms/Container';
+import LinearGradient from 'react-native-linear-gradient';
 import FastImage from 'react-native-fast-image';
 import LottieView from 'lottie-react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import IonIcons from 'react-native-vector-icons/Ionicons';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Container from '@components/Atoms/Container';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { requestContactsPermission } from '@utils/Permissions';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 import { staticUsers } from '@constants/dummy';
 import styles from './styles';
+import types from '@actions/types';
 
 const { height, width } = Dimensions.get('screen');
 
 const Messages = () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
+  const dispatch = useDispatch();
 
   const [selected, setSelected] = useState([]);
   const [usersD, setUsersD] = useState();
@@ -75,7 +79,8 @@ const Messages = () => {
       if (granted) {
         console.log('contacts permission granted');
         getContacts().then((contacts) => {
-          console.log(contacts);
+          // console.log(contacts);
+          dispatch({ type: types.SET_CONTACTS, payload: contacts });
         });
       } else {
         console.log('contacts permission denied');

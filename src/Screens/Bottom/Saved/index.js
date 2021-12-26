@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Container from '@components/Atoms/Container';
+import LoadingCompoenent from '@components/Organisms/Loading';
 
 const Saved = () => {
   return (
     <Container>
-      <Text>Saved</Text>
+      <LoadingCompoenent />
     </Container>
   );
 };

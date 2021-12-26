@@ -1,2 +1,3 @@
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const SET_PERMISSION = 'SET_PERMISSION';
+export const SET_CONTACTS = 'SET_CONTACTS';
