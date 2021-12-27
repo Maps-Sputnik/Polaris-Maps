@@ -46,14 +46,22 @@ export default function BottomNavigation() {
               color={focused ? colors.main : color}
             />
           );
-        case 'Settings':
+        case 'Profile':
           return (
             <Icon
-              name={focused ? 'settings-fill' : 'settings-line'}
+              name={focused ? 'account-circle-fill' : 'account-circle-line'}
               size={size}
               color={focused ? colors.main : color}
             />
           );
+        // case 'Settings':
+        //   return (
+        //     <Icon
+        //       name={focused ? 'settings-fill' : 'settings-line'}
+        //       size={size}
+        //       color={focused ? colors.main : color}
+        //     />
+        //   );
       }
     };
 
@@ -88,10 +96,15 @@ export default function BottomNavigation() {
         options={screenOptions('Messages')}
       />
       <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Settings"
         component={TabScreens.Settings}
         options={screenOptions('Settings')}
+      /> */}
+      <Tab.Screen
+        name="Profile"
+        component={TabScreens.Profile}
+        options={screenOptions('Profile')}
       />
     </Tab.Navigator>
   );
