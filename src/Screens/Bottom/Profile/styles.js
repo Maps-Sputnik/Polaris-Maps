@@ -97,6 +97,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 20,
   },
+  langRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingVertical: 10,
+  },
+  langImg: {
+    width: 45,
+    height: 45,
+  },
+  langTxt: {
+    fontFamily: 'Lato-Regular',
+    color: colors.text,
+    fontSize: sizes.h4,
+    marginHorizontal: 10,
+  },
 });
 
 export default styles;

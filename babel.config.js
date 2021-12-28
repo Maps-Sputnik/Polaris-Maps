@@ -26,6 +26,7 @@ module.exports = {
           '@actions': './src/Store/Actions',
           '@reducers': './src/Store/Reducers',
           '@sagas': './src/Store/Sagas',
+          '@i18n': './src/Utils/i18n',
         },
       },
     ],

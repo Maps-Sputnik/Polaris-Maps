@@ -1,25 +1,81 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
+import I18n, { changeLanguage } from '@i18n';
+import Icon from 'react-native-remix-icon';
+import { Button, Dialog, Portal } from 'react-native-paper';
+import { useSelector, useDispatch } from 'react-redux';
 import Container from '@components/Atoms/Container';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import StyledIcon from '@components/Atoms/StyledIcon';
-import Icon from 'react-native-remix-icon';
 import { SIZES as sizes, COLORS as colors } from '@constants';
 import styles from './styles';
 
 const Profile = () => {
+  // hooks
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
+  const dispatch = useDispatch();
+  const { currLanguage, languages } = useSelector((state) => ({
+    languages: state.language.allLanguages,
+    currLanguage: state.language.language,
+  }));
 
-  function renderSettingsRow(label, path, icon) {
+  // states
+  const [visible, setVisible] = React.useState(false);
+
+  // callbacks
+  const showDialog = () => setVisible(true);
+  const hideDialog = () => setVisible(false);
+  const navigate = (val) => navigation.navigate(val || 'Navigation');
+
+  function handleLangChange(lang) {
+    // I18n.locale = lang;
+    changeLanguage(lang);
+    dispatch({ type: 'CHANGE_LANGUAGE', payload: lang });
+    hideDialog();
+  }
+
+  // component funcs
+  function renderPopUp() {
     return (
-      <TouchableOpacity
-        style={styles.settingsRow}
-        onPress={() => navigation.navigate(path || 'Navigation')}
-      >
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>Change Language</Dialog.Title>
+          <Dialog.Content>
+            {languages &&
+              languages.map(({ key, label }) => {
+                return (
+                  <Touchable
+                    key={key}
+                    style={[
+                      styles.langRow,
+                      {
+                        backgroundColor: key === currLanguage ? colors.bg : 'white',
+                      },
+                    ]}
+                    onPress={() => handleLangChange(key)}
+                  >
+                    <Text style={styles.langTxt}>{label || ''}</Text>
+                  </Touchable>
+                );
+              })}
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog} color={colors.text}>
+              Done
+            </Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    );
+  }
+
+  function renderSettingsRow(label, path, icon, handler) {
+    return (
+      <TouchableOpacity style={styles.settingsRow} onPress={handler}>
         <StyledIcon
           name={icon.name}
           size={icon.size}
@@ -72,16 +128,21 @@ const Profile = () => {
           </Touchable>
         </View>
       </View>
-
+      {visible && renderPopUp()}
       {/* settings */}
       <View style={styles.settingsCon}>
         <Text style={styles.labelTxt}>Settings</Text>
-        {renderSettingsRow('Language', 'Navigation', {
-          name: 'global-fill',
-          size: sizes.icon - 5,
-          bg: '#d9ffe2',
-          color: '#1ab03d',
-        })}
+        {renderSettingsRow(
+          'Language',
+          'Navigation',
+          {
+            name: 'global-fill',
+            size: sizes.icon - 5,
+            bg: '#d9ffe2',
+            color: '#1ab03d',
+          },
+          showDialog
+        )}
         {renderSettingsRow('Notifications', 'Navigation', {
           name: 'notification-3-fill',
           size: sizes.icon - 5,

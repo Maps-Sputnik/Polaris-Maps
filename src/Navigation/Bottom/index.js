@@ -1,4 +1,6 @@
 import * as React from 'react';
+import I18n from '@i18n';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-remix-icon';
 import TabScreens from '@screens/Bottom';
@@ -66,7 +68,7 @@ export default function BottomNavigation() {
     };
 
   const screenOptions = (title, badge = false) => ({
-    title,
+    title: I18n.t(`bottom.${title}`),
     tabBarIcon: renderIcons(title),
     tabBarBadge: badge,
   });
