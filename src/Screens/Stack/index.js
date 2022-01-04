@@ -3,6 +3,7 @@ import Settings from './Settings';
 import Search from './Search';
 import Chat from './Chat';
 import EditProfile from './EditProfile';
+import FriendsList from './FriendsList';
 
 export default {
   Home,
@@ -10,4 +11,5 @@ export default {
   Search,
   Chat,
   EditProfile,
+  FriendsList,
 };

@@ -38,6 +38,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Search" component={StackScreens.Search} />
         <Stack.Screen name="Chat" component={StackScreens.Chat} />
         <Stack.Screen name="EditProfile" component={StackScreens.EditProfile} />
+        <Stack.Screen name="FriendsList" component={StackScreens.FriendsList} />
       </Stack.Navigator>
     </ErrorBoundary>
   );

@@ -114,7 +114,7 @@ const Profile = () => {
           <Text style={styles.h6}>+998916693104</Text>
         </View>
         <View style={[styles.row, styles.statsCon]}>
-          <Touchable>
+          <Touchable onPress={() => navigation.navigate('FriendsList')}>
             <Text style={styles.upperTxt}>50+</Text>
             <Text style={styles.h6}>{I18n.t('settings.Friends')}</Text>
           </Touchable>
