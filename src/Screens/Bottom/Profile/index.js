@@ -101,11 +101,11 @@ const Profile = () => {
       {/* <Text style={styles.headerTxt}>Profile</Text> */}
       <View style={styles.profileCon}>
         <View style={[styles.miniBar, styles.row]}>
-          <Touchable>
-            <Icon name={'pencil-line'} size={sizes.icon} color={colors.icon} />
+          <Touchable onPress={() => console.warn('smth')}>
+            {/* <Icon name={'settings-line'} size={sizes.icon} color={colors.icon} /> */}
           </Touchable>
-          <Touchable>
-            <Icon name={'settings-line'} size={sizes.icon} color={colors.icon} />
+          <Touchable onPress={() => navigation.navigate('EditProfile')}>
+            <Icon name={'pencil-line'} size={sizes.icon} color={colors.icon} />
           </Touchable>
         </View>
         <View style={styles.centeredCon}>

@@ -18,4 +18,10 @@ export default {
     Friends: 'Friends',
     Radars: 'Radars',
   },
+  editProfile: {
+    UpdateCredentials: 'Update Credentials',
+    Name: 'Name',
+    Lastname: 'Lastname',
+    Phone: 'Phone number',
+  },
 };

@@ -18,4 +18,10 @@ export default {
     Friends: "Do'stlar",
     Radars: 'Radarlar',
   },
+  editProfile: {
+    UpdateCredentials: 'Ma`lumotlarni yangilash',
+    Name: 'Ism',
+    Lastname: 'Familiya',
+    Phone: 'Telefon raqami',
+  },
 };

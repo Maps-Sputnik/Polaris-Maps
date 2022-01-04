@@ -18,4 +18,10 @@ export default {
     Friends: 'Друзья',
     Radars: 'Радары',
   },
+  editProfile: {
+    UpdateCredentials: 'Обновить данные',
+    Name: 'Имя',
+    Lastname: 'Фамилия',
+    Phone: 'Телефон',
+  },
 };
