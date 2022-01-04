@@ -12,9 +12,6 @@ const MemoRow = () => {
   const { height } = Dimensions.get('screen');
   const navigation = useNavigation();
 
-  function handleDelete() {
-    console.warn('Delete');
-  }
   return (
     <Touchable
       style={[
@@ -26,16 +23,13 @@ const MemoRow = () => {
       ]}
       onPress={() => navigation.navigate('Navigation')}
     >
-      <View>
-        <FontAwesome5 name="location-arrow" size={sizes.icon * 1.1} color={colors.icon} />
-      </View>
       <View style={styles.centerCon}>
         <Text style={styles.h4}>{'Home' || ''}</Text>
         <Text style={styles.h6}>{'5 Furness StBelfast, New York(NY)' || ''}</Text>
       </View>
       <View style={styles.actionsCon}>
-        <Touchable onPress={handleDelete}>
-          <IonIcons name="ios-trash-bin-outline" size={sizes.icon} color="red" />
+        <Touchable>
+          <FontAwesome5 name="location-arrow" size={sizes.icon} color={colors.icon} />
         </Touchable>
       </View>
     </Touchable>

@@ -24,12 +24,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'space-between',
     padding: 10,
+    paddingHorizontal: 20,
     marginVertical: 5,
   },
   centerCon: {
     flexDirection: 'column',
     flex: 1,
-    paddingHorizontal: 15,
+    height: '100%',
+    justifyContent: 'space-around',
   },
   h4: {
     fontFamily: 'Lato-Bold',
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
   },
   actionsCon: {
     flexDirection: 'column',
-    alignItems: 'flex-end',
+    // alignItems: 'flex-end',
     justifyContent: 'space-between',
   },
 });
