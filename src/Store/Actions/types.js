@@ -16,3 +16,8 @@ export const DISABLE_ERROR = 'DISABLE_ERROR';
 // Contacts
 export const SET_CONTACTS = 'SET_CONTACTS';
 export const GET_CONTACTS = 'GET_CONTACTS';
+
+// posts
+export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
+export const FETCH_POSTS_RESPONSE = 'FETCH_POSTS_RESPONSE';
+export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';

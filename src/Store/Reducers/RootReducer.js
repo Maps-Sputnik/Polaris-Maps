@@ -5,6 +5,7 @@ import MapReducer from './Map';
 import Loader from './Loader';
 import Error from './Error';
 import Language from './Language';
+import Post from './Post';
 // import { deleteToken } from '@services/HandleToken'
 
 const appReducer = combineReducers({
@@ -13,6 +14,7 @@ const appReducer = combineReducers({
   map: MapReducer,
   loader: Loader,
   error: Error,
+  post: Post,
 });
 
 const RootReducer = (state, action) => {

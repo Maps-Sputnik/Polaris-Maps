@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, Dimensions, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -7,12 +7,21 @@ import Touchable from '@components/Atoms/TouchableOpacity';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import { SIZES as sizes, COLORS as colors } from '@constants';
+import { useDispatch, useSelector } from 'react-redux';
+import * as types from '@store/Actions/types';
 import styles from './styles';
 
 const Saved = () => {
+  // hooks
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const { height } = Dimensions.get('screen');
+  const dispatch = useDispatch();
+  // effects
+
+  useEffect(() => {
+    dispatch({ type: types.FETCH_POSTS_REQUEST });
+  }, []);
 
   const dummy = [
     {
