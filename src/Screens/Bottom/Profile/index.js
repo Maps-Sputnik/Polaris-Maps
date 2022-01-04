@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
@@ -97,7 +97,7 @@ const Profile = () => {
     );
   }
   return (
-    <Container style={styles.container(insets)}>
+    <ScrollView contentContainerStyle={styles.scroll}>
       {/* <Text style={styles.headerTxt}>Profile</Text> */}
       <View style={styles.profileCon}>
         <View style={[styles.miniBar, styles.row]}>
@@ -110,13 +110,13 @@ const Profile = () => {
         </View>
         <View style={styles.centeredCon}>
           <FastImage source={require('@assets/Images/person.jpg')} style={styles.avatarImg} />
-          <Text style={styles.h3}>John Doe</Text>
+          <Text style={styles.h3}>John Does</Text>
           <Text style={styles.h6}>+998916693104</Text>
         </View>
         <View style={[styles.row, styles.statsCon]}>
           <Touchable>
             <Text style={styles.upperTxt}>50+</Text>
-            <Text style={styles.h6}>friends</Text>
+            <Text style={styles.h6}>{I18n.t('settings.Friends')}</Text>
           </Touchable>
           <Touchable>
             <Text style={styles.upperTxt}>12000+</Text>
@@ -124,16 +124,16 @@ const Profile = () => {
           </Touchable>
           <Touchable>
             <Text style={styles.upperTxt}>1550+</Text>
-            <Text style={styles.h6}>radars</Text>
+            <Text style={styles.h6}>{I18n.t('settings.Radars')}</Text>
           </Touchable>
         </View>
       </View>
       {visible && renderPopUp()}
       {/* settings */}
       <View style={styles.settingsCon}>
-        <Text style={styles.labelTxt}>Settings</Text>
+        {/* <Text style={styles.labelTxt}>Settings</Text> */}
         {renderSettingsRow(
-          'Language',
+          I18n.t('settings.Language'),
           'Navigation',
           {
             name: 'global-fill',
@@ -143,20 +143,20 @@ const Profile = () => {
           },
           showDialog
         )}
-        {renderSettingsRow('Notifications', 'Navigation', {
+        {renderSettingsRow(I18n.t('settings.Notification'), 'Navigation', {
           name: 'notification-3-fill',
           size: sizes.icon - 5,
           bg: '#fceccc',
           color: '#e8a620',
         })}
-        {renderSettingsRow('Help', 'Navigation', {
+        {renderSettingsRow(I18n.t('settings.Help'), 'Navigation', {
           name: 'error-warning-fill',
           size: sizes.icon - 5,
           bg: '#d9e9ff',
           color: '#498ff2',
         })}
       </View>
-    </Container>
+    </ScrollView>
   );
 };
 

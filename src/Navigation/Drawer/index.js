@@ -4,6 +4,7 @@ import CustomDrawer from '@components/Organisms/CustomDrawer';
 import RemixIcon from 'react-native-remix-icon';
 import DrawerScreens from '@screens/Drawer';
 import BottomNavigator from '@navigation/Bottom';
+import I18n from '@i18n';
 
 import { SIZES as sizes, COLORS as colors } from '@constants';
 
@@ -35,7 +36,7 @@ export default function DrawerNavigator() {
       }}
     >
       <Drawer.Screen
-        name="Map"
+        name={I18n.t(`drawer.Map`)}
         component={BottomNavigator}
         options={{
           drawerIcon: ({ focused, color, size }) => (
@@ -48,7 +49,7 @@ export default function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name="Help"
+        name={I18n.t(`drawer.Help`)}
         component={DrawerScreens.Help}
         options={{
           drawerIcon: ({ focused, color, size }) => (
@@ -61,7 +62,7 @@ export default function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name={'Privacy & Policy'}
+        name={I18n.t(`drawer.Privacy`)}
         component={DrawerScreens.Help}
         options={{
           drawerIcon: ({ focused, color, size }) => (

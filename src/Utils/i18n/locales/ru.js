@@ -6,4 +6,16 @@ export default {
     Messages: 'Сообщения',
     Navigation: 'Навигация',
   },
+  drawer: {
+    Map: 'Карта',
+    Help: 'Помощь',
+    Privacy: 'Политика конфиденциальности',
+  },
+  settings: {
+    Language: 'Язык',
+    Notification: 'Уведомления',
+    Help: 'Помощь',
+    Friends: 'Друзья',
+    Radars: 'Радары',
+  },
 };

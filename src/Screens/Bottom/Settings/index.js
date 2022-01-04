@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Container from '@components/Atoms/Container';
@@ -37,12 +37,11 @@ const Settings = () => {
   }
 
   return (
-    <Container style={styles.container(insets)}>
+    <ScrollView>
       <View style={styles.subCon}>
-        <Text style={styles.headerTxt}>Settings</Text>
         <View style={styles.accountCon}>
           <Text style={styles.labelTxt}>Account</Text>
-          {renderRow('John Doe', 'Home', {
+          {renderRow('John Does', 'Home', {
             name: 'user-6-fill',
             size: sizes.icon - 5,
             bg: '#e6e6e6',
@@ -69,7 +68,7 @@ const Settings = () => {
           })}
         </View>
       </View>
-    </Container>
+    </ScrollView>
   );
 };
 

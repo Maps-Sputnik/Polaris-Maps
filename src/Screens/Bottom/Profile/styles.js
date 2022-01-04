@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
   }),
+  scroll: (insets) => ({
+    paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
+  }),
   headerTxt: {
     fontFamily: 'Lato-Black',
     color: colors.text,
@@ -29,6 +32,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     padding: 10,
+    marginTop: 70,
   },
   miniBar: {
     justifyContent: 'space-between',
