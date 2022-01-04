@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import Touchable from '@components/Atoms/TouchableOpacity';
+import I18n from '@i18n';
 
 const RowMemo = () => {
   return (
@@ -12,7 +13,7 @@ const RowMemo = () => {
         <Text style={styles.h4}>John Doe</Text>
       </View>
       <Touchable style={styles.unfriendBtn}>
-        <Text style={[styles.h6, styles.btnTxt]}>Unfriend</Text>
+        <Text style={[styles.h6, styles.btnTxt]}>{I18n.t('friendsList.Unfriend')}</Text>
       </Touchable>
     </Touchable>
   );

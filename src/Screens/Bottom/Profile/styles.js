@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingVertical: 10,
+    paddingVertical: 15,
+    borderRadius: 0,
   },
   langImg: {
     width: 45,

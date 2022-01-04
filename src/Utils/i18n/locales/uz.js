@@ -17,11 +17,16 @@ export default {
     Help: 'Yordam',
     Friends: "Do'stlar",
     Radars: 'Radarlar',
+    Done: 'Saqlash',
   },
   editProfile: {
     UpdateCredentials: 'Ma`lumotlarni yangilash',
     Name: 'Ism',
     Lastname: 'Familiya',
     Phone: 'Telefon raqami',
+  },
+  friendsList: {
+    Friends: "Do'stlar",
+    Unfriend: "O'chirish",
   },
 };

@@ -65,7 +65,7 @@ const Profile = () => {
           </Dialog.Content>
           <Dialog.Actions>
             <Button onPress={hideDialog} color={colors.text}>
-              Done
+              {I18n.t('settings.Done')}
             </Button>
           </Dialog.Actions>
         </Dialog>

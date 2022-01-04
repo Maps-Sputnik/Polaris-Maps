@@ -17,11 +17,16 @@ export default {
     Help: 'Помощь',
     Friends: 'Друзья',
     Radars: 'Радары',
+    Done: 'Готово',
   },
   editProfile: {
     UpdateCredentials: 'Обновить данные',
     Name: 'Имя',
     Lastname: 'Фамилия',
     Phone: 'Телефон',
+  },
+  friendsList: {
+    Friends: 'Друзья',
+    Unfriend: 'Удалить',
   },
 };

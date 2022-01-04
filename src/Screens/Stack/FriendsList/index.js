@@ -27,7 +27,7 @@ const FriendsList = () => {
           <StyledIcon name="ri-search-line" size={sizes.icon} color={colors.icon} />
         </Touchable>
       </View>
-      <Text style={styles.labelTxt}>Friends</Text>
+      <Text style={styles.labelTxt}>{I18n.t('friendsList.Friends')}</Text>
       {/* content */}
       <RowMemo />
       <RowMemo />
