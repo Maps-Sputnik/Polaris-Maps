@@ -25,10 +25,15 @@ const Profile = () => {
 
   // states
   const [visible, setVisible] = React.useState(false);
+  const [logoutVisible, setLogoutVisible] = React.useState(false);
 
   // callbacks
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
+
+  const showLogOutAlert = () => setLogoutVisible(true);
+  const hideLogOutAlert = () => setLogoutVisible(false);
+
   const navigate = (val) => navigation.navigate(val || 'Navigation');
 
   function handleLangChange(lang) {
@@ -36,6 +41,11 @@ const Profile = () => {
     changeLanguage(lang);
     dispatch({ type: 'CHANGE_LANGUAGE', payload: lang });
     hideDialog();
+  }
+
+  function handleLogOut() {
+    hideLogOutAlert();
+    navigation.navigate('Login');
   }
 
   // component funcs
@@ -66,6 +76,24 @@ const Profile = () => {
           <Dialog.Actions>
             <Button onPress={hideDialog} color={colors.text}>
               {I18n.t('settings.Done')}
+            </Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    );
+  }
+
+  function renderLogOutAlert() {
+    return (
+      <Portal>
+        <Dialog visible={logoutVisible} onDismiss={hideLogOutAlert}>
+          <Dialog.Title>{I18n.t('settings.LogOutTxt')} </Dialog.Title>
+          <Dialog.Actions>
+            <Button onPress={handleLogOut} color="red">
+              {I18n.t('settings.Sure')}
+            </Button>
+            <Button onPress={hideLogOutAlert} color="green">
+              {I18n.t('settings.Cancel')}
             </Button>
           </Dialog.Actions>
         </Dialog>
@@ -129,9 +157,11 @@ const Profile = () => {
         </View>
       </View>
       {visible && renderPopUp()}
+      {logoutVisible && renderLogOutAlert()}
       {/* settings */}
       <View style={styles.settingsCon}>
         {/* <Text style={styles.labelTxt}>Settings</Text> */}
+
         {renderSettingsRow(
           I18n.t('settings.Language'),
           'Navigation',
@@ -160,6 +190,17 @@ const Profile = () => {
           bg: '#d9e9ff',
           color: '#498ff2',
         })}
+        {renderSettingsRow(
+          I18n.t('settings.Logout'),
+          'Navigation',
+          {
+            name: 'ri-logout-circle-line',
+            size: sizes.icon - 5,
+            bg: '#fedcda',
+            color: '#a30800',
+          },
+          showLogOutAlert
+        )}
       </View>
     </ScrollView>
   );

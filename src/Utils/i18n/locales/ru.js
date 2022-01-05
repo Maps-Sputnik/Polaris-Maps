@@ -18,6 +18,10 @@ export default {
     Friends: 'Друзья',
     Radars: 'Радары',
     Done: 'Готово',
+    Logout: 'Выйти',
+    LogOutTxt: 'Вы уверены, что хотите выйти?',
+    Sure: 'Да',
+    Cancel: 'Отмена',
   },
   editProfile: {
     UpdateCredentials: 'Обновить данные',
@@ -31,5 +35,9 @@ export default {
   },
   notifications: {
     Notifications: 'Уведомления',
+  },
+  login: {
+    Login: 'Войти',
+    PrivacyTxt: 'Входя вы соглашаетесь с нашими Условиями и Политикой конфиденциальности',
   },
 };

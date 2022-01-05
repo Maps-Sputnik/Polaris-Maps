@@ -18,6 +18,10 @@ export default {
     Friends: "Do'stlar",
     Radars: 'Radarlar',
     Done: 'Saqlash',
+    Logout: 'Chiqish',
+    LogOutTxt: 'Sizga chiqishni istaysizmi?',
+    Sure: 'Ha',
+    Cancel: 'Bekor qilish',
   },
   editProfile: {
     UpdateCredentials: 'Ma`lumotlarni yangilash',
@@ -31,5 +35,10 @@ export default {
   },
   notifications: {
     Notifications: 'Bildirishnomalar',
+  },
+  login: {
+    Login: 'Kirish',
+    PrivacyTxt:
+      'Tizimga kirish orqali siz Xizmat shartlari va Maxfiylik siyosatimizga rozilik bildirasiz',
   },
 };

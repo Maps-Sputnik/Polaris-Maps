@@ -6,6 +6,8 @@ import EditProfile from './EditProfile';
 import FriendsList from './FriendsList';
 import Notifications from './Notifications';
 
+import Login from './Auth/Login';
+
 export default {
   Home,
   Settings,
@@ -14,4 +16,5 @@ export default {
   EditProfile,
   FriendsList,
   Notifications,
+  Login,
 };

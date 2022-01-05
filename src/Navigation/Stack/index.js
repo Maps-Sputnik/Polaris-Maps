@@ -40,6 +40,7 @@ const StackNavigator = () => {
         <Stack.Screen name="EditProfile" component={StackScreens.EditProfile} />
         <Stack.Screen name="FriendsList" component={StackScreens.FriendsList} />
         <Stack.Screen name="Notifications" component={StackScreens.Notifications} />
+        <Stack.Screen name="Login" component={StackScreens.Login} />
       </Stack.Navigator>
     </ErrorBoundary>
   );

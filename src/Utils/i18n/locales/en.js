@@ -18,6 +18,10 @@ export default {
     Friends: 'Friends',
     Radars: 'Radars',
     Done: 'Done',
+    Logout: 'Logout',
+    LogOutTxt: 'Are you sure you want to log out?',
+    Sure: 'Sure',
+    Cancel: 'Cancel',
   },
   editProfile: {
     UpdateCredentials: 'Update Credentials',
@@ -31,5 +35,9 @@ export default {
   },
   notifications: {
     Notifications: 'Notifications',
+  },
+  login: {
+    Login: 'Login',
+    PrivacyTxt: 'By logging in you agree to our Terms of Service and Privacy Policy',
   },
 };

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   }),
   scroll: {
     backgroundColor: 'white',
-    flex: 1,
+    // flex: 1,
   },
   row: {
     flexDirection: 'row',
