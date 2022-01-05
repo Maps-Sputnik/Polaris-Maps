@@ -1,6 +1,4 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import I18n, { changeLanguage } from '@i18n';
 
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import ErrorBoundary from '@components/Others/ErrorBoundary';
@@ -11,17 +9,6 @@ import BottomNavigator from '@navigation/Bottom';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
-  const dispatch = useDispatch();
-  const { currLanguage, languages } = useSelector((state) => ({
-    languages: state.language.allLanguages,
-    currLanguage: state.language.language,
-  }));
-
-  React.useEffect(() => {
-    if (currLanguage) {
-      changeLanguage(currLanguage);
-    }
-  }, [currLanguage]);
   return (
     <ErrorBoundary>
       <Stack.Navigator
