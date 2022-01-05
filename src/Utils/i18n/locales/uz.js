@@ -29,4 +29,7 @@ export default {
     Friends: "Do'stlar",
     Unfriend: "O'chirish",
   },
+  notifications: {
+    Notifications: 'Bildirishnomalar',
+  },
 };

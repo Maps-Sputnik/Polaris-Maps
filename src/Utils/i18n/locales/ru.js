@@ -29,4 +29,7 @@ export default {
     Friends: 'Друзья',
     Unfriend: 'Удалить',
   },
+  notifications: {
+    Notifications: 'Уведомления',
+  },
 };

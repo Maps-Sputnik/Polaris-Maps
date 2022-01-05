@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, Dimensions, ScrollView } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import I18n from '@i18n';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import StyledIcon from '@components/Atoms/StyledIcon';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { SIZES as sizes, COLORS as colors } from '@constants';

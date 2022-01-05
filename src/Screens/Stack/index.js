@@ -4,6 +4,7 @@ import Search from './Search';
 import Chat from './Chat';
 import EditProfile from './EditProfile';
 import FriendsList from './FriendsList';
+import Notifications from './Notifications';
 
 export default {
   Home,
@@ -12,4 +13,5 @@ export default {
   Chat,
   EditProfile,
   FriendsList,
+  Notifications,
 };

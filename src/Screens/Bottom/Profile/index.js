@@ -143,12 +143,17 @@ const Profile = () => {
           },
           showDialog
         )}
-        {renderSettingsRow(I18n.t('settings.Notification'), 'Navigation', {
-          name: 'notification-3-fill',
-          size: sizes.icon - 5,
-          bg: '#fceccc',
-          color: '#e8a620',
-        })}
+        {renderSettingsRow(
+          I18n.t('settings.Notification'),
+          'Navigation',
+          {
+            name: 'notification-3-fill',
+            size: sizes.icon - 5,
+            bg: '#fceccc',
+            color: '#e8a620',
+          },
+          () => navigation.navigate('Notifications')
+        )}
         {renderSettingsRow(I18n.t('settings.Help'), 'Navigation', {
           name: 'error-warning-fill',
           size: sizes.icon - 5,
