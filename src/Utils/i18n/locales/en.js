@@ -40,4 +40,7 @@ export default {
     Login: 'Login',
     PrivacyTxt: 'By logging in you agree to our Terms of Service and Privacy Policy',
   },
+  search: {
+    Search: 'Search',
+  },
 };

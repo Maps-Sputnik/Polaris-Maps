@@ -41,4 +41,7 @@ export default {
     PrivacyTxt:
       'Tizimga kirish orqali siz Xizmat shartlari va Maxfiylik siyosatimizga rozilik bildirasiz',
   },
+  search: {
+    Search: 'Qidiruv',
+  },
 };

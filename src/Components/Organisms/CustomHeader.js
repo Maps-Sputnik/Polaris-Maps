@@ -5,6 +5,7 @@ import Icon from 'react-native-remix-icon';
 import { useNavigation } from '@react-navigation/native';
 import CustomTouchableOpacity from '@components/Atoms/TouchableOpacity';
 import { MAIN_HEADER } from '@constants';
+import I18n from '@i18n';
 
 const CustomHeader = (props) => {
   const insets = useSafeAreaInsets();
@@ -15,7 +16,7 @@ const CustomHeader = (props) => {
         <Icon name="menu-4-line" size={28} color="#000" />
       </CustomTouchableOpacity>
       <TouchableOpacity style={styles.searchBar} onPress={() => navigation.navigate('Search')}>
-        <Text style={styles.title}>Search...</Text>
+        <Text style={styles.title}>{I18n.t('search.Search')}</Text>
       </TouchableOpacity>
     </View>
   );

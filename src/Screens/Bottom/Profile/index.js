@@ -184,12 +184,6 @@ const Profile = () => {
           },
           () => navigation.navigate('Notifications')
         )}
-        {renderSettingsRow(I18n.t('settings.Help'), 'Navigation', {
-          name: 'error-warning-fill',
-          size: sizes.icon - 5,
-          bg: '#d9e9ff',
-          color: '#498ff2',
-        })}
         {renderSettingsRow(
           I18n.t('settings.Logout'),
           'Navigation',

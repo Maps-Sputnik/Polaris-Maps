@@ -1,7 +1,7 @@
 import * as types from '../Actions/types';
 
 const initialState = {
-  language: null,
+  language: 'uz',
   allLanguages: [
     { key: 'en', label: 'English' },
     { key: 'uz', label: "O'zbek" },
