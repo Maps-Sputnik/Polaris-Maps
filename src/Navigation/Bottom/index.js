@@ -51,7 +51,7 @@ export default function BottomNavigation() {
         case 'Profile':
           return (
             <Icon
-              name={focused ? 'account-circle-fill' : 'account-circle-line'}
+              name={focused ? 'user-6-fill' : 'user-6-line'}
               size={size}
               color={focused ? colors.main : color}
             />
@@ -98,11 +98,6 @@ export default function BottomNavigation() {
         options={screenOptions('Messages')}
       />
       <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
-      {/* <Tab.Screen
-        name="Settings"
-        component={TabScreens.Settings}
-        options={screenOptions('Settings')}
-      /> */}
       <Tab.Screen
         name="Profile"
         component={TabScreens.Profile}

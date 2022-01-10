@@ -65,7 +65,8 @@ const Messages = () => {
   }
 
   function importContacts() {
-    dispatch({ type: types.GET_CONTACTS });
+    setUsersD(staticUsers);
+    // dispatch({ type: types.GET_CONTACTS });
     // to be changed later
     // setUsersD(staticUsers);
     // const getContacts = async () => {
