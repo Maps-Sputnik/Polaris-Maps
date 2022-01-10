@@ -1,17 +1,17 @@
 import * as React from 'react';
-import I18n from '@i18n';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-remix-icon';
 import TabScreens from '@screens/Bottom';
 import CustomTabBar from '@components/Organisms/CustomTabBar';
 import CustomHeader from '@components/Organisms/CustomHeader';
-
 import { COLORS as colors } from '@constants';
+import I18n from '@i18n';
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigation() {
+  console.log('Rendering');
+
   const renderTabBar = (props) => {
     return <CustomTabBar {...props} />;
   };
@@ -56,14 +56,6 @@ export default function BottomNavigation() {
               color={focused ? colors.main : color}
             />
           );
-        // case 'Settings':
-        //   return (
-        //     <Icon
-        //       name={focused ? 'settings-fill' : 'settings-line'}
-        //       size={size}
-        //       color={focused ? colors.main : color}
-        //     />
-        //   );
       }
     };
 
@@ -88,14 +80,14 @@ export default function BottomNavigation() {
       }}
     >
       <Tab.Screen
-        name="Messages"
-        component={TabScreens.Messages}
-        options={screenOptions('Messages')}
-      />
-      <Tab.Screen
         name="Navigation"
         component={TabScreens.Navigation}
         options={screenOptions('Navigation')}
+      />
+      <Tab.Screen
+        name="Messages"
+        component={TabScreens.Messages}
+        options={screenOptions('Messages')}
       />
       <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
       <Tab.Screen

@@ -2,14 +2,12 @@ import { StyleSheet } from 'react-native';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 
 const styles = StyleSheet.create({
-  container: (insets) => ({
+  scroll: (insets) => ({
     backgroundColor: 'white',
     flex: 1,
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
   }),
-  scroll: {
-    backgroundColor: 'white',
-    flex: 1,
-  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',

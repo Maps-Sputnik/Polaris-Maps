@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import I18n from '@i18n';
 import StyledIcon from '@components/Atoms/StyledIcon';
 import Touchable from '@components/Atoms/TouchableOpacity';
@@ -11,13 +12,14 @@ import RowMemo from './RowMemo';
 
 const FriendsList = () => {
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
 
   function handleFinal() {
     console.warn('to be implemented later');
   }
   // component funcs
   return (
-    <ScrollView contentContainerStyle={styles.scroll}>
+    <ScrollView contentContainerStyle={styles.scroll(insets)}>
       <View style={[styles.row, styles.barCon]}>
         <Touchable onPress={() => navigation.goBack()}>
           <StyledIcon name="ri-arrow-left-s-line" size={sizes.icon * 1.3} color={colors.icon} />
