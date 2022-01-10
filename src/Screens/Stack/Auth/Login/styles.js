@@ -5,11 +5,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-
-    // paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
   },
+  scrollView: (insets) => ({
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom,
+    paddingHorizontal: 15,
+  }),
   animation: {
     width: 300,
     height: 300,

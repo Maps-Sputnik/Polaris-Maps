@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: (insets) => ({
     backgroundColor: 'white',
     flex: 1,
-    // paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
+    paddingTop: insets.top,
   }),
   avatarImg: {
     width: 50,
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    // justifyContent: 'space-between',
   },
   btns: {
     marginHorizontal: 10,
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     color: '#018AEB',
   },
   chatCon: {
-    backgroundColor: 'red',
+    // height: '50%',
   },
   sendBtn: {
     marginHorizontal: 10,
@@ -73,7 +74,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#018AEB',
     },
     right: {
-      backgroundColor: '#018AEB',
+      backgroundColor: colors.main,
+      paddingRight: 6,
     },
   },
   dayTxt: {

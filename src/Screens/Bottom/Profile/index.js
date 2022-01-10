@@ -89,11 +89,11 @@ const Profile = () => {
         <Dialog visible={logoutVisible} onDismiss={hideLogOutAlert}>
           <Dialog.Title>{I18n.t('settings.LogOutTxt')} </Dialog.Title>
           <Dialog.Actions>
-            <Button onPress={handleLogOut} color="red">
-              {I18n.t('settings.Sure')}
-            </Button>
             <Button onPress={hideLogOutAlert} color="green">
               {I18n.t('settings.Cancel')}
+            </Button>
+            <Button onPress={handleLogOut} color="red">
+              {I18n.t('settings.Sure')}
             </Button>
           </Dialog.Actions>
         </Dialog>

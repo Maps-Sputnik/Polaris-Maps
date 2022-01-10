@@ -15,6 +15,7 @@ target 'Polaris' do
 
   pod 'react-native-location', :path => '../node_modules/react-native-location'
   pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
+  pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text', :modular_headers => true
   
   target 'PolarisTests' do
     inherit! :complete
