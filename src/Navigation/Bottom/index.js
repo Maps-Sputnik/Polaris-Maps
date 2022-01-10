@@ -88,14 +88,14 @@ export default function BottomNavigation() {
       }}
     >
       <Tab.Screen
-        name="Navigation"
-        component={TabScreens.Navigation}
-        options={screenOptions('Navigation')}
-      />
-      <Tab.Screen
         name="Messages"
         component={TabScreens.Messages}
         options={screenOptions('Messages')}
+      />
+      <Tab.Screen
+        name="Navigation"
+        component={TabScreens.Navigation}
+        options={screenOptions('Navigation')}
       />
       <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
       <Tab.Screen

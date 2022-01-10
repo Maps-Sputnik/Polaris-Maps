@@ -55,7 +55,7 @@ const Login = () => {
         <View style={styles.formCon}>
           <View>
             <Text style={styles.labelTxt}>{I18n.t('login.Login')}</Text>
-            <Text style={{ color: '#000' }}>You can style now!! :)</Text>
+            {/* <Text style={{ color: '#000' }}>You can style now!! :)</Text> */}
             <TextInputMask
               style={styles.input}
               placeholder="+998 90 123 45 67"

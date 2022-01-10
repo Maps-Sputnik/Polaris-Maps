@@ -27,12 +27,15 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 10,
     paddingBottom: 0,
-    flexDirection: 'column',
     justifyContent: 'space-evenly',
   },
   input: {
-    borderBottomWidth: 1,
-    borderColor: colors.bg,
+    borderBottomWidth: 0.4,
+    borderColor: colors.border,
+    paddingTop: 10,
+    paddingBottom: 4,
+    fontSize: 20,
+    marginTop: 15,
   },
   labelTxt: {
     fontFamily: 'Lato-Black',
