@@ -37,6 +37,7 @@ allprojects {
         }
 
         google()
+        jcenter()
         maven { url 'https://www.jitpack.io' }
         maven {
             url 'https://api.mapbox.com/downloads/v2/releases/maven'
@@ -49,6 +50,13 @@ allprojects {
                 username = 'mapbox'
                 // Use the secret token you stored in gradle.properties as the password
                 password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+            }
+        }
+    }
+    configurations.all {
+        resolutionStrategy {
+            dependencySubstitution {
+                substitute module("com.redmadrobot:input-mask-android:6.0.0") using module('com.github.RedMadRobot:input-mask-android:6.0.0')
             }
         }
     }
