@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import Contacts from 'react-native-contacts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
-import FastImage from 'react-native-fast-image';
 import LottieView from 'lottie-react-native';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,13 +12,10 @@ import Container from '@components/Atoms/Container';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { requestContactsPermission } from '@utils/Permissions';
 import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
-import { staticUsers } from '@constants/dummy';
 import styles from './styles';
 import * as types from '@actions/types';
 
 import MemoRow from './MemoRow';
-
-const { height, width } = Dimensions.get('screen');
 
 const Messages = () => {
   // hooks
@@ -28,13 +24,15 @@ const Messages = () => {
   const dispatch = useDispatch();
   // state
   const [selected, setSelected] = useState([]);
-  const [selectMode, setSelectMode] = useState(false);
-
   // effects,
   const { contacts } = useSelector((state) => ({
     contacts: state.user.contacts,
   }));
-  // console.log('CONTACTS', JSON.stringify(contacts, null, 2));
+  console.log('CONTACTS', JSON.stringify(contacts, null, 2));
+
+  const filteredContacts = useMemo(() => {
+    return contacts.filter((contact) => contact?.phoneNumbers[0]?.number?.length > 9);
+  }, [contacts]);
 
   // callbacks
   function importContacts() {
@@ -82,11 +80,11 @@ const Messages = () => {
   }
 
   const usersMapped = useMemo(() => {
-    return contacts.map(function (user) {
+    return filteredContacts.map(function (user) {
       return (
         <MemoRow
           user={{
-            id: user?.recordId,
+            id: user?.recordID,
             name: user?.displayName,
             avatar: user?.avatar,
             backupColor: '#00bde8',
@@ -98,11 +96,11 @@ const Messages = () => {
             msgTime: '121212',
             unreadCount: 1,
           }}
-          key={user?.recordId}
+          key={user?.recordID}
         />
       );
     });
-  }, [contacts]);
+  }, [filteredContacts]);
 
   function renderTools() {
     return (
@@ -156,7 +154,7 @@ const Messages = () => {
 
   return (
     <Container style={styles.container(insets)}>
-      {!contacts?.length ? (
+      {!filteredContacts?.length ? (
         renderNoChat()
       ) : (
         <View style={styles.innerCon}>
