@@ -6,6 +6,7 @@ import Loader from './Loader';
 import Error from './Error';
 import Language from './Language';
 import Post from './Post';
+import Friend from './Friend';
 // import { deleteToken } from '@services/HandleToken'
 
 const appReducer = combineReducers({
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   loader: Loader,
   error: Error,
   post: Post,
+  friend: Friend,
 });
 
 const RootReducer = (state, action) => {

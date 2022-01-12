@@ -4,7 +4,7 @@ import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 const styles = StyleSheet.create({
   container: (insets) => ({
     backgroundColor: 'white',
-    flex: 1,
+    // flex: 1,
     paddingTop: MAIN_HEADER.height + insets.top + MAIN_HEADER.top + 10,
   }),
   labelTxt: {
@@ -34,10 +34,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: sizes.padding,
   },
   avatarImg: {
-    width: 60,
-    height: 60,
-    borderRadius: 60,
+    width: 55,
+    height: 55,
+    borderRadius: 55,
     resizeMode: 'cover',
+  },
+  noAvatarCon: (color) => ({
+    width: 55,
+    height: 55,
+    borderRadius: 55,
+    backgroundColor: color ? color : '#6b705c',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }),
+  avatarTxt: {
+    color: 'white',
+    fontFamily: 'Lato-Regular',
+    fontSize: sizes.h3,
   },
   badgeCon: {
     flexDirection: 'row',
@@ -96,6 +110,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
+  },
+  requestBtn: (isMember) => ({
+    backgroundColor: isMember ? '#018AEB' : '#387532',
+    width: 70,
+    height: 30,
+    borderRadius: 0,
+  }),
+  requestTxt: {
+    fontSize: sizes.h6,
+    fontFamily: 'Lato-Regular',
+    color: 'white',
   },
 });
 

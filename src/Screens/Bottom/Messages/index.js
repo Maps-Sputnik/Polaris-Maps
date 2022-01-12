@@ -17,120 +17,92 @@ import { staticUsers } from '@constants/dummy';
 import styles from './styles';
 import * as types from '@actions/types';
 
+import MemoRow from './MemoRow';
+
 const { height, width } = Dimensions.get('screen');
 
 const Messages = () => {
+  // hooks
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
-
+  // state
   const [selected, setSelected] = useState([]);
-  const [usersD, setUsersD] = useState();
   const [selectMode, setSelectMode] = useState(false);
-  // effects,
 
-  useEffect(() => {
-    if (selected?.length) setSelectMode(true);
-    else setSelectMode(false);
-  }, [selected]);
+  // effects,
+  const { contacts } = useSelector((state) => ({
+    contacts: state.user.contacts,
+  }));
+  // console.log('CONTACTS', JSON.stringify(contacts, null, 2));
 
   // callbacks
-  function handlePress(_id) {
-    if (!selectMode) {
-      navigation.navigate('Chat');
-    } else {
-      handleLongPress(_id);
-    }
-  }
-
-  function handleLongPress(_id) {
-    if (selected.includes(_id)) {
-      setSelected((prev) => prev.filter((item) => item !== _id));
-    } else {
-      setSelected((prev) => [...prev, _id]);
-    }
-  }
-  function handleDelete() {
-    let filtered = [];
-    for (let user of usersD) {
-      if (!selected.includes(user?.id)) {
-        filtered.push(user);
-      }
-    }
-    setUsersD(filtered);
-    setSelected([]);
-  }
-  function makeRead() {
-    console.warn('to be handled later');
-  }
-
   function importContacts() {
-    setUsersD(staticUsers);
-    // dispatch({ type: types.GET_CONTACTS });
+    dispatch({ type: types.GET_CONTACTS });
     // to be changed later
-    // setUsersD(staticUsers);
-    // const getContacts = async () => {
-    //   try {
-    //     const contacts = await Contacts.getAll();
-    //     return contacts;
-    //   } catch (err) {
-    //     console.warn(err);
-    //   }
-    // };
-    // requestContactsPermission().then((granted) => {
-    //   if (granted) {
-    //     console.log('contacts permission granted');
-    //     getContacts().then((contacts) => {
-    //       // console.log(contacts);
-    //       dispatch({ type: types.SET_CONTACTS, payload: contacts });
-    //     });
-    //   } else {
-    //     console.log('contacts permission denied');
-    //   }
-    // });
+    const getContacts = async () => {
+      try {
+        const contacts = await Contacts.getAll();
+        return contacts;
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    requestContactsPermission().then((granted) => {
+      if (granted) {
+        console.log('contacts permission granted');
+        getContacts().then((contacts) => {
+          // console.log(contacts);
+          dispatch({ type: types.SET_CONTACTS, payload: contacts });
+        });
+      } else {
+        console.log('contacts permission denied');
+      }
+    });
   }
-  // component funcs
-  function renderRow(user) {
-    const { id, avatar, name, lastMsg = null, msgTime = null, unreadCount = null } = user;
-    return (
-      <Touchable
-        style={[
-          styles.chatRow,
-          {
-            width: '95%',
-            height: height * 0.08,
-            paddingHorizontal: selected.includes(id) ? sizes.padding : 0,
-            backgroundColor: selected.includes(id) ? '#a9d6e5' : 'white',
-          },
-        ]}
-        onPress={() => handlePress(id)}
-        onLongPress={() => handleLongPress(id)}
-        key={id}
-      >
-        <FastImage
-          source={avatar || require('@assets/Images/person.jpg')}
-          style={styles.avatarImg}
-        />
 
-        <View style={styles.subCon}>
-          <View style={[styles.nameCon, styles.rowBtw]}>
-            <Text style={styles.nameTxt}>{name || ''}</Text>
-            <View style={styles.badgeCon}>
-              <Text style={styles.badgeTxt}>{unreadCount || 1}</Text>
-            </View>
-          </View>
-          <View style={[styles.timeCon, styles.rowBtw]}>
-            <Text style={styles.msgTxt}>
-              {lastMsg?.length > 27
-                ? `${lastMsg.slice(0, 26)}...`
-                : lastMsg || 'Hi, How are you doin ? '}
-            </Text>
-            <Text style={styles.timeTxt}>{msgTime || '00:00'}</Text>
-          </View>
-        </View>
-      </Touchable>
-    );
+  // component funcs
+  var colorsD = [
+    '#0d41e1',
+    '#a100f2',
+    '#f20089',
+    '#6610f2',
+    '#04e762',
+    '#fc2f00',
+    '#183fe9',
+    '#0cb4e5',
+    '#0050e3',
+    '#00bde8',
+    '#de0152',
+  ];
+
+  function generateRandomColor() {
+    let randomInt = Math.floor(Math.random() * 9) + 1;
+    return colorsD[randomInt];
   }
+
+  const usersMapped = useMemo(() => {
+    return contacts.map(function (user) {
+      return (
+        <MemoRow
+          user={{
+            id: user?.recordId,
+            name: user?.displayName,
+            avatar: user?.avatar,
+            backupColor: '#00bde8',
+            isFriend: false,
+            isMember: user?.displayName.length > 4,
+          }}
+          msg={{
+            lastMsg: 'Smth',
+            msgTime: '121212',
+            unreadCount: 1,
+          }}
+          key={user?.recordId}
+        />
+      );
+    });
+  }, [contacts]);
 
   function renderTools() {
     return (
@@ -181,21 +153,16 @@ const Messages = () => {
       </View>
     );
   }
+
   return (
     <Container style={styles.container(insets)}>
-      {!usersD?.length ? (
+      {!contacts?.length ? (
         renderNoChat()
       ) : (
         <View style={styles.innerCon}>
           <Text style={styles.labelTxt}>Friends</Text>
           {selected?.length > 0 && renderTools()}
-          {usersD.map(function (user) {
-            return renderRow({
-              id: user?.id,
-              name: user?.name,
-              avatar: user?.avatar,
-            });
-          })}
+          {usersMapped}
         </View>
       )}
     </Container>
