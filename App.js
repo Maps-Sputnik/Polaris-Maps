@@ -25,10 +25,10 @@ const App = () => {
   }, [currLanguage]);
 
   useEffect(() => {
-    MapboxGL.setAccessToken(
-      'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
-    );
-    LogBox.ignoreLogs(['new NativeEventEmitter']);
+    // MapboxGL.setAccessToken(
+    //   'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
+    // );
+    // LogBox.ignoreLogs(['new NativeEventEmitter']);
 
     RNLocation.configure({
       allowsBackgroundLocationUpdates: true,

@@ -115,7 +115,7 @@ const Messages = () => {
             avatar: user?.avatar,
             backupColor: '#00bde8',
             isFriend: false,
-            isMember: user?.displayName.length > 4,
+            isMember: user?.displayName?.length > 4,
           }}
           msg={{
             lastMsg: 'Smth',

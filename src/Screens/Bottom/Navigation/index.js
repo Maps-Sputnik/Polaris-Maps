@@ -9,35 +9,35 @@ import styles from './styles';
 import { COLORS } from '@constants';
 
 const Dashboard = () => {
-  const [coordinates, setCoordinates] = useState([69.294861, 41.316441]);
-  const [userCoordinates, setUserCoordinates] = useState([69.294861, 41.316441]);
-  const [init, setInit] = useState(true);
-  const [zoom, setZoom] = useState(15);
+  // const [coordinates, setCoordinates] = useState([69.294861, 41.316441]);
+  // const [userCoordinates, setUserCoordinates] = useState([69.294861, 41.316441]);
+  // const [init, setInit] = useState(true);
+  // const [zoom, setZoom] = useState(15);
 
-  useEffect(() => {
-    const unsubscribe = RNLocation.subscribeToLocationUpdates((locations) => {
-      let latestLocation = { timestamp: 0 };
-      locations.forEach((location, index) => {
-        if (location.timestamp > latestLocation.timestamp) {
-          latestLocation = location;
-        }
-      });
-      setUserCoordinates([latestLocation.longitude, latestLocation.latitude]);
-      if (init) {
-        setCoordinates([latestLocation.longitude, latestLocation.latitude]);
-        setInit(false);
-      }
-    });
-    return unsubscribe;
-  }, []);
+  // useEffect(() => {
+  // const unsubscribe = RNLocation.subscribeToLocationUpdates((locations) => {
+  //   let latestLocation = { timestamp: 0 };
+  //   locations.forEach((location, index) => {
+  //     if (location.timestamp > latestLocation.timestamp) {
+  //       latestLocation = location;
+  //     }
+  //   });
+  //   setUserCoordinates([latestLocation.longitude, latestLocation.latitude]);
+  //   if (init) {
+  //     setCoordinates([latestLocation.longitude, latestLocation.latitude]);
+  //     setInit(false);
+  //   }
+  // });
+  // return unsubscribe;
+  // }, []);
 
-  const zoomInOut = (zoomIn) => () => {
-    if (zoomIn) {
-      setZoom(zoom + 1);
-    } else {
-      setZoom(zoom - 1);
-    }
-  };
+  // const zoomInOut = (zoomIn) => () => {
+  //   if (zoomIn) {
+  //     setZoom(zoom + 1);
+  //   } else {
+  //     setZoom(zoom - 1);
+  //   }
+  // };
 
   const returnToDefault = () => {
     // cameraRef?.current?.setCamera({
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   return (
     <Container style={styles.container}>
-      <MapboxGL.MapView
+      {/* <MapboxGL.MapView
         style={styles.map}
         zoomEnabled={true}
         styleURL="mapbox://styles/polaris-maps/ckxln0bve2t5814krx77s65hl"
@@ -62,7 +62,7 @@ const Dashboard = () => {
           animationDuration={1000}
           heading={0}
         />
-        {/* <MapboxGL.PointAnnotation coordinate={coordinates} id={'asd'} /> */}
+        <MapboxGL.PointAnnotation coordinate={coordinates} id={'asd'} />
       </MapboxGL.MapView>
       <View style={styles.zoomContainer}>
         <TouchableOpacity onPress={zoomInOut(true)}>
@@ -89,7 +89,7 @@ const Dashboard = () => {
           color={COLORS.primary}
           style={[styles.shadow, styles.zoomButton]}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </Container>
   );
 };

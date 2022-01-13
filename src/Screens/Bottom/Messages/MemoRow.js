@@ -39,7 +39,7 @@ function Row(props) {
         <FastImage source={avatar} style={styles.avatarImg} />
       ) : (
         <View style={styles.noAvatarCon(backupColor)}>
-          <Text style={styles.avatarTxt}>{name.charAt(0) || ''}</Text>
+          <Text style={styles.avatarTxt}>{name?.charAt(0) || ''}</Text>
         </View>
       )}
 
@@ -60,7 +60,7 @@ function Row(props) {
           <View style={[styles.timeCon, styles.rowBtw]}>
             <Text style={styles.msgTxt}>
               {lastMsg?.length > 27
-                ? `${lastMsg.slice(0, 26)}...`
+                ? `${lastMsg?.slice(0, 26)}...`
                 : lastMsg || 'Hi, How are you doin ? '}
             </Text>
             <Text style={styles.timeTxt}>{msgTime || '00:00'}</Text>

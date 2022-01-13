@@ -15,14 +15,14 @@ const Saved = () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
-  const { loader } = useSelector((state) => ({ loading: state.loader.general }));
+  // const { loader } = useSelector((state) => ({ loading: state.loader.general }));
   // effects
   useEffect(() => {
     dispatch({ type: types.FETCH_POSTS_REQUEST });
   }, []);
 
   return (
-    <LoadingWithScrollView loader={loader}>
+    <LoadingWithScrollView loader={false}>
       <Text style={styles.headerTxt}>Saved places</Text>
       <View style={styles.subCon}>
         <MemoRow />
