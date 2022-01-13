@@ -30,6 +30,32 @@ const Messages = () => {
   }));
   console.log('CONTACTS', JSON.stringify(contacts, null, 2));
 
+  const filteredNums = useMemo(() => {
+    if (contacts.length > 0) {
+      let contactsWithNums = contacts.filter(
+        (contact) => contact?.phoneNumbers[0]?.number?.length > 9
+      );
+      let phones = contactsWithNums.map((contact) => contact?.phoneNumbers[0]?.number);
+      let trimmedNums = phones.map(function (phone) {
+        return trimmer(phone);
+      });
+      return trimmedNums;
+    } else {
+      return null;
+    }
+  }, [contacts]);
+  console.log('TRIMMED NUMS', JSON.stringify(filteredNums, null, 2));
+
+  function trimmer(word) {
+    let final = '';
+    for (let i = 0; i < word.length; i++) {
+      if (word.charAt(i) != ' ' && word.charAt(i) != '+') {
+        final = final += word.charAt(i);
+      }
+    }
+    return final;
+  }
+
   const filteredContacts = useMemo(() => {
     return contacts.filter((contact) => contact?.phoneNumbers[0]?.number?.length > 9);
   }, [contacts]);
