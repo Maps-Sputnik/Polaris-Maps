@@ -71,7 +71,7 @@ const Chat = () => {
         <RemixIcon
           name="send-plane-2-fill"
           size={sizes.icon}
-          color={colors.main}
+          color={colors.primary}
           style={styles.sendBtn}
         />
         {/* <Ionicons name="ios-send-sharp" size={sizes.icon} color="#018AEB" style={styles.sendBtn} /> */}

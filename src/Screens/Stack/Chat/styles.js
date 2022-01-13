@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#018AEB',
     },
     right: {
-      backgroundColor: colors.main,
+      backgroundColor: colors.primary,
       paddingRight: 6,
     },
   },

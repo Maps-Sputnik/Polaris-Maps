@@ -30,7 +30,7 @@ export default function BottomNavigation() {
       screenOptions={{
         headerShown: true,
         header: renderHeader,
-        tabBarActiveTintColor: colors.main,
+        tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.secondary,
         tabBarHideOnKeyboard: false,
         tabBarLabelStyle: {

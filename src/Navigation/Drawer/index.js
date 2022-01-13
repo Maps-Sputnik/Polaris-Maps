@@ -9,7 +9,7 @@ import I18n from '@i18n';
 import { SIZES as sizes, COLORS as colors } from '@constants';
 const screenOptions = {
   headerShown: false,
-  drawerActiveTintColor: colors.main,
+  drawerActiveTintColor: colors.primary,
   drawerInactiveTintColor: colors.secondary,
   drawerType: 'front',
   drawerItemStyle: {
