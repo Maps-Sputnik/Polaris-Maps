@@ -7,8 +7,8 @@ export const changeLanguage = (val) => {
   if (val) I18n.locale = val;
   return val;
 };
-I18n.defaultLocale = 'uz';
 I18n.fallbacks = true;
+I18n.defaultLocale = 'uz';
 
 I18n.translations = {
   uz,

@@ -10,8 +10,6 @@ import I18n from '@i18n';
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigation() {
-  console.log('Rendering');
-
   const renderTabBar = (props) => {
     return <CustomTabBar {...props} />;
   };
@@ -20,50 +18,11 @@ export default function BottomNavigation() {
     return <CustomHeader {...props} />;
   };
 
-  const renderIcons =
+  const renderIcon =
     (name) =>
     ({ focused, color, size }) => {
-      switch (name) {
-        case 'Navigation':
-          return (
-            <Icon
-              name={focused ? 'navigation-fill' : 'navigation-line'}
-              size={size}
-              color={focused ? colors.main : color}
-            />
-          );
-        case 'Messages':
-          return (
-            <Icon
-              name={focused ? 'chat-1-fill' : 'chat-1-line'}
-              size={size}
-              color={focused ? colors.main : color}
-            />
-          );
-        case 'Saved':
-          return (
-            <Icon
-              name={focused ? 'bookmark-fill' : 'bookmark-line'}
-              size={size}
-              color={focused ? colors.main : color}
-            />
-          );
-        case 'Profile':
-          return (
-            <Icon
-              name={focused ? 'user-6-fill' : 'user-6-line'}
-              size={size}
-              color={focused ? colors.main : color}
-            />
-          );
-      }
+      return <Icon name={focused ? `${name}-fill` : `${name}-line`} size={size} color={color} />;
     };
-
-  const screenOptions = (title, badge = false) => ({
-    title: I18n.t(`bottom.${title}`),
-    tabBarIcon: renderIcons(title),
-    tabBarBadge: badge,
-  });
 
   return (
     <Tab.Navigator
@@ -73,6 +32,7 @@ export default function BottomNavigation() {
         header: renderHeader,
         tabBarActiveTintColor: colors.main,
         tabBarInactiveTintColor: colors.secondary,
+        tabBarHideOnKeyboard: false,
         tabBarLabelStyle: {
           fontSize: 13,
           fontFamily: 'Ubuntu-Regular',
@@ -82,18 +42,38 @@ export default function BottomNavigation() {
       <Tab.Screen
         name="Navigation"
         component={TabScreens.Navigation}
-        options={screenOptions('Navigation')}
+        options={{
+          title: I18n.t('bottom.Navigation'),
+          tabBarIcon: renderIcon('navigation'),
+          tabBarBadge: false,
+        }}
       />
       <Tab.Screen
         name="Messages"
         component={TabScreens.Messages}
-        options={screenOptions('Messages')}
+        options={{
+          title: I18n.t('bottom.Messages'),
+          tabBarIcon: renderIcon('chat-1'),
+          tabBarBadge: false,
+        }}
       />
-      <Tab.Screen name="Saved" component={TabScreens.Saved} options={screenOptions('Saved')} />
+      <Tab.Screen
+        name="Saved"
+        component={TabScreens.Saved}
+        options={{
+          title: I18n.t('bottom.Saved'),
+          tabBarIcon: renderIcon('bookmark'),
+          tabBarBadge: false,
+        }}
+      />
       <Tab.Screen
         name="Profile"
         component={TabScreens.Profile}
-        options={screenOptions('Profile')}
+        options={{
+          title: I18n.t('bottom.Profile'),
+          tabBarIcon: renderIcon('user-6'),
+          tabBarBadge: true,
+        }}
       />
     </Tab.Navigator>
   );
