@@ -1,5 +1,10 @@
 export default {
   greeting: 'Hi!',
+  screens: {},
+  navigationScreen: {
+    noPermission: "You don't have permission to access your location, please allow it",
+    allow: 'Allow',
+  },
   bottom: {
     Profile: 'Profile',
     Saved: 'Saved',

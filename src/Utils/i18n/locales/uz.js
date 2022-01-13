@@ -1,5 +1,9 @@
 export default {
   greeting: 'Hi!',
+  navigationScreen: {
+    noPermission: 'Joylashuvingizga ruxsat etilmagan. Iltimos, ruxsat bering!',
+    allow: 'Ruxsat berish',
+  },
   bottom: {
     Profile: 'Profil',
     Saved: 'Saqlangan',

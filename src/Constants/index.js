@@ -4,6 +4,7 @@ export const COLORS = {
   icon: '#003566',
   bg: '#e5e5e5',
   text: '#14213d',
+  buttonBg: '#1466c9',
 };
 
 export const SIZES = {

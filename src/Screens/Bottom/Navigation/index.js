@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import RNLocation from 'react-native-location';
+import { useSelector } from 'react-redux';
 import Container from '@components/Atoms/Container';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 import StyledIcon from '@components/Atoms/StyledIcon';
+import AskPermission from './AskPermission';
 import styles from './styles';
 import { COLORS } from '@constants';
 
@@ -13,6 +15,12 @@ const Dashboard = () => {
   const [userCoordinates, setUserCoordinates] = useState([69.294861, 41.316441]);
   const [init, setInit] = useState(true);
   const [zoom, setZoom] = useState(15);
+
+  const { permissionGranted, styleUrl } = useSelector((state) => ({
+    permissionGranted: state.map.permissionGranted,
+    styleUrl: state.map.styleUrl,
+  }));
+  console.log('permissionGranted', permissionGranted);
 
   useEffect(() => {
     const unsubscribe = RNLocation.subscribeToLocationUpdates((locations) => {
@@ -49,47 +57,49 @@ const Dashboard = () => {
 
   return (
     <Container style={styles.container}>
-      <MapboxGL.MapView
-        style={styles.map}
-        zoomEnabled={true}
-        styleURL="mapbox://styles/polaris-maps/ckxln0bve2t5814krx77s65hl"
-      >
-        <MapboxGL.UserLocation androidRenderMode="compass" />
-        <MapboxGL.Camera
-          zoomLevel={zoom}
-          centerCoordinate={coordinates}
-          animationMode="flyTo"
-          animationDuration={1000}
-          heading={0}
-        />
-        {/* <MapboxGL.PointAnnotation coordinate={coordinates} id={'asd'} /> */}
-      </MapboxGL.MapView>
-      <View style={styles.zoomContainer}>
-        <TouchableOpacity onPress={zoomInOut(true)}>
-          <StyledIcon
-            name="add-line"
-            size={28}
-            color="#000"
-            style={[styles.shadow, styles.zoomButton]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={zoomInOut(false)}>
-          <StyledIcon
-            name="subtract-line"
-            size={28}
-            color="#000"
-            style={[styles.shadow, styles.zoomButton]}
-          />
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity style={styles.compassContainer} onPress={returnToDefault}>
-        <StyledIcon
-          name="compass-3-line"
-          size={30}
-          color={COLORS.primary}
-          style={[styles.shadow, styles.zoomButton]}
-        />
-      </TouchableOpacity>
+      {permissionGranted ? (
+        <>
+          <MapboxGL.MapView style={styles.map} zoomEnabled={true} styleURL={styleUrl}>
+            <MapboxGL.UserLocation androidRenderMode="compass" />
+            <MapboxGL.Camera
+              zoomLevel={zoom}
+              centerCoordinate={coordinates}
+              animationMode="flyTo"
+              animationDuration={1000}
+              heading={0}
+            />
+            {/* <MapboxGL.PointAnnotation coordinate={coordinates} id={'asd'} /> */}
+          </MapboxGL.MapView>
+          <View style={styles.zoomContainer}>
+            <TouchableOpacity onPress={zoomInOut(true)}>
+              <StyledIcon
+                name="add-line"
+                size={28}
+                color="#000"
+                style={[styles.shadow, styles.zoomButton]}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={zoomInOut(false)}>
+              <StyledIcon
+                name="subtract-line"
+                size={28}
+                color="#000"
+                style={[styles.shadow, styles.zoomButton]}
+              />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.compassContainer} onPress={returnToDefault}>
+            <StyledIcon
+              name="compass-3-line"
+              size={30}
+              color={COLORS.primary}
+              style={[styles.shadow, styles.zoomButton]}
+            />
+          </TouchableOpacity>
+        </>
+      ) : (
+        <AskPermission permissionGranted={permissionGranted} />
+      )}
     </Container>
   );
 };

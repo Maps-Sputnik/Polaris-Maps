@@ -1,5 +1,9 @@
 export default {
   greeting: 'Hi!',
+  navigationScreen: {
+    noPermission: 'У вас нет разрешения на доступ к вашему местоположению. Разрешите его.',
+    allow: 'Разрешить',
+  },
   bottom: {
     Profile: 'Профиль',
     Saved: 'Сохранено',
