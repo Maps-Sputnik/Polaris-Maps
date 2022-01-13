@@ -1,4 +1,4 @@
-import getContacts from '@sagas/User/GetContacts';
+import getContacts from './GetContacts';
 
 export default {
   getContacts,

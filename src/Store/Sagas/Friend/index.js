@@ -1,5 +1,5 @@
-import makeFriend from './make';
+import requestFriend from './request';
 
 export default {
-  makeFriend,
+  requestFriend,
 };
