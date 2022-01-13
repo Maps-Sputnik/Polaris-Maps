@@ -8,7 +8,7 @@ import RNLocation from 'react-native-location';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from '@navigation/Stack';
 import I18n, { changeLanguage } from '@i18n';
-import { SET_PERMISSION } from '@store/Actions/types';
+import { SET_PERMISSION, GET_ACCESS_TOKEN } from '@store/Actions/types';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,10 +25,14 @@ const App = () => {
   }, [currLanguage]);
 
   useEffect(() => {
-    // MapboxGL.setAccessToken(
-    //   'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
-    // );
-    // LogBox.ignoreLogs(['new NativeEventEmitter']);
+    // FOR PRODUCTION
+    // dispatch({ type: GET_ACCESS_TOKEN })
+
+    // FOR DEVELOPMENT
+    MapboxGL.setAccessToken(
+      'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
+    );
+    LogBox.ignoreLogs(['new NativeEventEmitter']);
 
     RNLocation.configure({
       allowsBackgroundLocationUpdates: true,
