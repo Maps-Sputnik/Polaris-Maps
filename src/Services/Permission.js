@@ -20,6 +20,7 @@ export const requestContactsPermission = async () => {
         return false;
       }
     } catch (err) {
+      return false;
       // console.warn(err);
     }
   } else {
@@ -60,8 +61,7 @@ export const requestLocationPermission = async () => {
     },
   });
 
-  if (isAlways) return true;
-  if (whenInUse) return true;
+  if (isAlways || whenInUse) return true;
 
   granted = await RNLocation.requestPermission({
     ios: 'always',

@@ -5,6 +5,7 @@ import Chat from './Chat';
 import EditProfile from './EditProfile';
 import FriendsList from './FriendsList';
 import Notifications from './Notifications';
+import Language from './Language';
 
 import Login from './Auth/Login';
 
@@ -17,4 +18,5 @@ export default {
   FriendsList,
   Notifications,
   Login,
+  Language,
 };

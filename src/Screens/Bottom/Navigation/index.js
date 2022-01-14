@@ -20,7 +20,6 @@ const Dashboard = () => {
     permissionGranted: state.map.permissionGranted,
     styleUrl: state.map.styleUrl,
   }));
-  console.log('permissionGranted', permissionGranted);
 
   useEffect(() => {
     const unsubscribe = RNLocation.subscribeToLocationUpdates((locations) => {
