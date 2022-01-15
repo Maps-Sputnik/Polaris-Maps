@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import RemixIcon from 'react-native-remix-icon';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
-import { changeLanguage } from '@i18n';
 import Container from '@components/Atoms/Container';
 import styles from './styles';
 import { COLORS } from '@constants';
@@ -21,7 +20,6 @@ const Language = () => {
   const renderLanguages = () => {
     return languages.map((language, index) => {
       const setLanguage = () => {
-        changeLanguage(language.key);
         dispatch({ type: 'CHANGE_LANGUAGE', payload: language.key });
         if (params?.goBack) {
           navigation.goBack();

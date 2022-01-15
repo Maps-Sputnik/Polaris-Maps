@@ -2,28 +2,56 @@ import React from 'react';
 import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
-import I18n from '@i18n';
-import Icon from 'react-native-remix-icon';
 import { Button, Dialog, Portal } from 'react-native-paper';
+import Icon from 'react-native-remix-icon';
+import I18n from '@i18n';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import StyledIcon from '@components/Atoms/StyledIcon';
 import { SIZES as sizes, COLORS as colors } from '@constants';
 import styles from './styles';
 
+const ProfileItem = ({ label, icon, onPress }) => {
+  return (
+    <TouchableOpacity style={styles.settingsRow} onPress={onPress}>
+      <StyledIcon
+        name={icon.name}
+        size={icon.size}
+        color={icon.color}
+        style={styles.iconBg(icon.bg, 50, 13)}
+      />
+      <View style={styles.centered}>
+        <Text style={styles.regular}>{label} </Text>
+      </View>
+      <Touchable hitSlop={10} style={styles.arrowContainer}>
+        <StyledIcon
+          name={'arrow-right-s-line'}
+          size={sizes.icon * 0.7}
+          color={colors.icon}
+          style={styles.iconBg('#f5f5f5', 10, 9)}
+        />
+      </Touchable>
+    </TouchableOpacity>
+  );
+};
+
 const Profile = () => {
   // hooks
   const navigation = useNavigation();
-
   // states
   const [logoutVisible, setLogoutVisible] = React.useState(false);
 
   const showLogOutAlert = () => setLogoutVisible(true);
   const hideLogOutAlert = () => setLogoutVisible(false);
+  const navigate =
+    (name, params = {}) =>
+    () => {
+      navigation.navigate(name, params);
+    };
 
-  function handleLogOut() {
+  const handleLogOut = () => {
     hideLogOutAlert();
     navigation.navigate('Login');
-  }
+  };
 
   function renderLogOutAlert() {
     return (
@@ -43,29 +71,6 @@ const Profile = () => {
     );
   }
 
-  function renderSettingsRow(label, path, icon, handler) {
-    return (
-      <TouchableOpacity style={styles.settingsRow} onPress={handler}>
-        <StyledIcon
-          name={icon.name}
-          size={icon.size}
-          color={icon.color}
-          style={styles.iconBg(icon.bg, 50, 13)}
-        />
-        <View style={styles.centered}>
-          <Text style={styles.regular}>{label} </Text>
-        </View>
-        <Touchable hitSlop={10} style={styles.arrowContainer}>
-          <StyledIcon
-            name={'arrow-right-s-line'}
-            size={sizes.icon * 0.7}
-            color={colors.icon}
-            style={styles.iconBg('#f5f5f5', 10, 9)}
-          />
-        </Touchable>
-      </TouchableOpacity>
-    );
-  }
   return (
     <ScrollView contentContainerStyle={styles.scroll}>
       {/* <Text style={styles.headerTxt}>Profile</Text> */}
@@ -98,45 +103,41 @@ const Profile = () => {
           </Touchable>
         </View>
       </View>
-      {logoutVisible && renderLogOutAlert()}
       {/* settings */}
       <View style={styles.settingsCon}>
         {/* <Text style={styles.labelTxt}>Settings</Text> */}
-
-        {renderSettingsRow(
-          I18n.t('settings.Language'),
-          'Navigation',
-          {
+        <ProfileItem
+          label={I18n.t('settings.Language')}
+          icon={{
             name: 'global-fill',
             size: sizes.icon - 5,
             bg: '#d9ffe2',
             color: '#1ab03d',
-          },
-          () => navigation.navigate('LanguageSelect', { goBack: true })
-        )}
-        {renderSettingsRow(
-          I18n.t('settings.Notification'),
-          'Navigation',
-          {
+          }}
+          onPress={navigate('LanguageSelect', { goBack: true })}
+        />
+        <ProfileItem
+          label={I18n.t('settings.Notification')}
+          icon={{
             name: 'notification-3-fill',
             size: sizes.icon - 5,
             bg: '#fceccc',
             color: '#e8a620',
-          },
-          () => navigation.navigate('Notifications')
-        )}
-        {renderSettingsRow(
-          I18n.t('settings.Logout'),
-          'Navigation',
-          {
+          }}
+          onPress={navigate('Notifications')}
+        />
+        <ProfileItem
+          label={I18n.t('settings.Logout')}
+          icon={{
             name: 'ri-logout-circle-line',
             size: sizes.icon - 5,
             bg: '#fedcda',
             color: '#a30800',
-          },
-          showLogOutAlert
-        )}
+          }}
+          onPress={showLogOutAlert}
+        />
       </View>
+      {logoutVisible && renderLogOutAlert()}
     </ScrollView>
   );
 };
