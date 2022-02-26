@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Dimensions, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 import LoadingHoc from '@components/HOCs/LoadingHoc';
 import * as types from '@store/Actions/types';
 import MemoRow from './MemoRow';

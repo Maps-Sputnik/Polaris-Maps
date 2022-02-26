@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform, Dimensions } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 
+import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 import { COLORS as colors } from '@constants';
 
 const isIos = Platform.OS === 'ios';

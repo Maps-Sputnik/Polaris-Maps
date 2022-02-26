@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Text, View, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Contacts from 'react-native-contacts';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -11,10 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Container from '@components/Atoms/Container';
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { requestContactsPermission } from '@utils/Permissions';
-import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
-import styles from './styles';
+import { SIZES as sizes } from '@constants';
 import * as types from '@actions/types';
-
+import styles from './styles';
 import MemoRow from './MemoRow';
 
 const Messages = () => {
@@ -22,13 +21,14 @@ const Messages = () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
+
   // state
   const [selected, setSelected] = useState([]);
+
   // effects,
   const { contacts } = useSelector((state) => ({
     contacts: state.user.contacts,
   }));
-  console.log('CONTACTS', JSON.stringify(contacts, null, 2));
 
   const filteredNums = useMemo(() => {
     if (contacts.length > 0) {
@@ -44,7 +44,6 @@ const Messages = () => {
       return null;
     }
   }, [contacts]);
-  console.log('TRIMMED NUMS', JSON.stringify(filteredNums, null, 2));
 
   function trimmer(word) {
     let final = '';

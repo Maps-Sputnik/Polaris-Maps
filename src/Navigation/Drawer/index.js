@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import CustomDrawer from '@components/Organisms/CustomDrawer';
 import RemixIcon from 'react-native-remix-icon';
+
+import CustomDrawer from '@components/Organisms/CustomDrawer';
 import DrawerScreens from '@screens/Drawer';
 import BottomNavigator from '@navigation/Bottom';
 import I18n from '@i18n';

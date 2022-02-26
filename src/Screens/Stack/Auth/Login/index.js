@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import TextInputMask from 'react-native-text-input-mask';
+
 import Touchable from '@components/Atoms/TouchableOpacity';
 import { SIZES as sizes, COLORS as colors } from '@constants';
 import I18n from '@i18n';

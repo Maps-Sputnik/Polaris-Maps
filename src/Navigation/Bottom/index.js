@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-remix-icon';
+
 import TabScreens from '@screens/Bottom';
 import CustomTabBar from '@components/Organisms/CustomTabBar';
 import CustomHeader from '@components/Organisms/CustomHeader';

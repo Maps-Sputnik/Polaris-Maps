@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+
 import { SIZES as sizes } from '@constants';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 

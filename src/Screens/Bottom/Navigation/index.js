@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import RNLocation from 'react-native-location';
 import { useSelector } from 'react-redux';
+
 import Container from '@components/Atoms/Container';
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 import StyledIcon from '@components/Atoms/StyledIcon';

@@ -2,22 +2,23 @@ import React from 'react';
 import { Text, View, Dimensions } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useNavigation } from '@react-navigation/native';
+
 import Touchable from '@components/Atoms/TouchableOpacity';
-import { SIZES as sizes, COLORS as colors, MAIN_HEADER } from '@constants';
 import styles from './styles';
 
+const { height } = Dimensions.get('screen');
+
 function Row(props) {
+  const navigation = useNavigation();
+
   const { id, avatar, name, backupColor, isFriend, isMember } = props.user;
   const { lastMsg = null, msgTime = null, unreadCount = null } = props.msg;
-  //   hooks
-  const navigation = useNavigation();
 
   // callbacks
   function handlePress(_id) {
     navigation.navigate('Chat');
   }
 
-  const { height, width } = Dimensions.get('screen');
   return (
     <Touchable
       style={[
@@ -25,8 +26,6 @@ function Row(props) {
         {
           width: '95%',
           height: height * 0.08,
-          //   paddingHorizontal: selected.includes(id) ? sizes.padding : 0,
-          //   backgroundColor: selected.includes(id) ? '#a9d6e5' : 'white',
           paddingHorizontal: 0,
           backgroundColor: 'white',
         },

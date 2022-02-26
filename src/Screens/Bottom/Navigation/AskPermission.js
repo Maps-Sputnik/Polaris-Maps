@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { View, Text, Linking } from 'react-native';
 import FastImage from 'react-native-fast-image';
+
 import TouchableOpacity from '@components/Atoms/TouchableOpacity';
 import { requestLocationPermission } from '@services/Permission';
 import styles from './styles';

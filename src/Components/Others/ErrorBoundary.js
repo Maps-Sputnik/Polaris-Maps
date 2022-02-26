@@ -14,7 +14,6 @@ export class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { error: false };
-    // this.handleClick = this.handleClick.bind(this);
     this.colors = props.theme.colors;
   }
 

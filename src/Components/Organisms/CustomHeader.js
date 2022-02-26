@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-remix-icon';
 import { useNavigation } from '@react-navigation/native';
+
 import CustomTouchableOpacity from '@components/Atoms/TouchableOpacity';
 import { MAIN_HEADER } from '@constants';
 import I18n from '@i18n';
