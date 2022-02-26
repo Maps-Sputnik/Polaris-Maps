@@ -6,6 +6,7 @@ import MapboxGL, { Logger } from '@react-native-mapbox-gl/maps';
 import { useDispatch, useSelector } from 'react-redux';
 import RNLocation from 'react-native-location';
 import { NavigationContainer } from '@react-navigation/native';
+import Config from 'react-native-config';
 import StackNavigator from '@navigation/Stack';
 import { requestLocationPermission } from '@services/Permission';
 import I18n, { changeLanguage } from '@i18n';
@@ -46,9 +47,8 @@ const App = () => {
     // dispatch({ type: GET_ACCESS_TOKEN })
 
     // FOR DEVELOPMENT
-    MapboxGL.setAccessToken(
-      'sk.eyJ1IjoicG9sYXJpcy1tYXBzIiwiYSI6ImNreGthajR0ZDBzaWEycG81c2N4N3BvNWgifQ.oLvyK7pozaHFOzvCswzVYA'
-    );
+    console.info(Config);
+    MapboxGL.setAccessToken(Config.MAPBOX_API_KEY);
 
     const unsubscribe = RNLocation.subscribeToPermissionUpdates((currentPermission) => {
       if (currentPermission === ('denied' || 'never_ask_again' || 'restricted')) {

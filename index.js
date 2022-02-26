@@ -1,6 +1,3 @@
-/**
- * @format
- */
 import 'react-native-gesture-handler';
 import React from 'react';
 import { AppRegistry } from 'react-native';
@@ -27,8 +24,8 @@ const theme = {
   },
 };
 function App() {
-  // if (isHeadless) {
   //   // App has been launched in the background by iOS, ignore
+  // if (isHeadless) {
   //   return null;
   // }
   const { store, persistor } = configureStore;
